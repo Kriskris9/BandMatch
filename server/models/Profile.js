@@ -19,7 +19,39 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-
+  firstName: {
+      type: String,
+      required: true,
+    },
+  lastName: {
+      type: String,
+      required: true,
+    },
+  experience: {
+      type: String,
+      required: true,
+  },
+  instruments: {
+      type: String,
+      required: true,
+    },
+  genres: {
+      type: String,
+      required: true,
+    },
+  bio: {
+      type: String,
+      required: true,
+    },
+  location: {
+      type: String,
+      required: true,
+    },
+  socialMedia: {
+      type: String,
+      required: true,
+  } 
+  
 });
 
 profileSchema.pre('save', async function (next) {
