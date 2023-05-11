@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const bandMemberSchema = new Schema({
+const postSchema = new Schema({
 updatedAt: {
     type: Date,
     default: Date.now,
@@ -12,23 +12,30 @@ updatedAt: {
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
-    lookingForBand: {
-        type: Boolean,
-        required: true,
-    },
     skills: {
         type: String,
         required: true,
     },
-    userId: [
+    userId: 
         {
           type: Schema.Types.ObjectId,
           ref: 'Profile',
         },
-      ],
+      experience: {
+        type: String,
+        required: true,
+    },
+    instrument: {
+        type: String,
+        required: true,
+      },
+    genres: {
+        type: String,
+        required: true,
+      },
     
 });
 
-const BandMember = model('BandMember', bandMemberSchema);
+const Post = model('Post', postSchema);
 
-module.exports = BandMember;
+module.exports = Post;

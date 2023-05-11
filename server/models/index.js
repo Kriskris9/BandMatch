@@ -1,6 +1,6 @@
 const Profile = require('./Profile');
-const BandMember = require('./BandMember');
+const Post = require('./Post');
 const Message = require('./Message');
 
 
-module.exports = { Profile , BandMember , Message};
+module.exports = { Profile , Post , Message};
