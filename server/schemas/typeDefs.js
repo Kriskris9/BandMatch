@@ -9,11 +9,7 @@ const typeDefs = gql`
     posts: [String]
     profileCard: String
     bio: String
-    image: String
-  }
-
-  input ImageUploadInput {
-    file: Upload!
+    profilePic: String
   }
 
   type Post {
@@ -56,9 +52,7 @@ const typeDefs = gql`
   type Mutation {
     addProfile(username: String!, email: String!, password: String!): Auth
 
-    imageUpload(input: ImageUploadInput!): Profile!
-
-    updateProfile(bio: String, image: String): Profile
+    updateProfile(bio: String, profilePic: String): Profile
 
     login(email: String!, password: String!): Auth
 
@@ -69,8 +63,6 @@ const typeDefs = gql`
       image: String
       text: String
     ): profileCard
-
-    
 
     addPost(postText: String!, image: String!): Post
 
