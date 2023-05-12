@@ -10,6 +10,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
+import Login from '../src/pages/Login';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -42,6 +43,7 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <Footer />
+          <Login />
         </div>
       </Router>
     </ApolloProvider>

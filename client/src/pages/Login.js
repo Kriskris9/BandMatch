@@ -1,91 +1,90 @@
-import React,{useState} from 'react';
-import {Link} from 'react-router-dom';
-import {useMutation} from '@apollo/client';
-import{LOGIN_USER} from '../utils/mutations';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import './login.css';
+import backgroundImage from '../assets/background.jpg';
 
-const Login = (prop) =>{
-    const [formState,setFormState] = useState({email:'',password:''});
-    const [login, { error, data }] = useMutation(LOGIN_USER);
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-    
-        setFormState({
-          ...formState,
-          [name]: value,
-        });
-    };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    const handleFormSubmit = async (event) =>{
-        event.preventDefault();
-        console.log(formState);
-        
-    try{
-        const {data} = await login({
-            variable:{...formState},
-        });
-        Auth.login(data.login.token);
-        }
-    catch(err){
-        console.error(err)
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-        }
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
 
-        setFormState({
-            email: '',
-            password:'',
-        });
-    };
-    return(
-        <main className="flex-row justify-center mb-4">
-          <div className="col-12 col-lg-10">
-            <div className="card">
-              <h4 className="card-header bg-dark text-light p-2">Login</h4>
-              <div className="card-body">
-                {data ? (
-                  <p>
-                    You are now logged in {' '}
-                    <Link to="/">back to the homepage.</Link>
-                  </p>
-                ) : (
-                  <form onSubmit={handleFormSubmit}>
-                    <input
-                      className="form-input"
-                      placeholder="Email"
-                      name="email"
-                      type="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                    />
-                    <input
-                      className="form-input"
-                      placeholder="PASSWORD"
-                      name="password"
-                      type="password"
-                      value={formState.password}
-                      onChange={handleChange}
-                    />
-                    <button
-                      className="btn btn-block btn-primary"
-                      style={{ cursor: 'pointer' }}
-                      type="submit"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                )}
-    
-                {error && (
-                  <div className="my-3 p-3 bg-danger text-white">
-                    {error.message}
-                  </div>
-                )}
+    // Add some validation to check whether the fields are empty or not
+    if (!formState.email || !formState.password) {
+      return;
+    }
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setFormState({ email: '', password: '' });
+  };
+
+  // Use destructuring assignment to simplify the formState
+  const { email, password } = formState;
+
+  return (
+    <main>
+      <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="login-form">
+          <h4>Login</h4>
+          {data ? (
+            <p>
+              You are now logged in{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form onSubmit={handleFormSubmit}>
+              <div>
+                <label htmlFor="email">Email:</label>
+                <input
+                  className="form-input"
+                  placeholder="Type your email"
+                  name="email"
+                  type="email"
+                  value={email}
+                  onChange={handleChange}
+                />
               </div>
-            </div>
-          </div>
-        </main>
-      );
-};
+              <div>
+                <label htmlFor="password">Password:</label>
+                <input
+                  className="form-input"
+                  placeholder="Type your password"
+                  name="password"
+                  type="password"
+                  value={password}
+                  onChange={handleChange}
+                />
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          )}
 
+          {error && <div>{error.message}</div>}
+        </div>
+      </div>
+    </main>
+  );
+};
 export default Login;
