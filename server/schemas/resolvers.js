@@ -2,8 +2,6 @@ const { AuthenticationError } = require("apollo-server-express");
 const { Profile, Post, profileCard } = require("../models");
 const { signToken } = require("../utils/auth");
 
-require('dotenv').config();
-const cloudinary = require('../utils/cloudinary');
 
 const resolvers = {
     Query: {
@@ -104,23 +102,6 @@ const resolvers = {
                 return card;
             }
             throw new AuthenticationError("You need to be logged in!");
-        },
-        imageUpload: async (_, { file }) => {
-            try {
-                // const uploadResult = await cloudinary.uploader.upload(file, {
-                //     folder: 'bandmatch',
-                // });
-
-                const profile = await Profile.findById(profileId);
-                //path profile.image is the url of the image which is what will be uploaded to the profile [use const image to refer to the image url]
-                profile.image = uploadResult.secure_url;
-                await profile.save(); 
-
-                return profile;
-            } catch (error) {
-                console.error(error);
-                throw new Error('Failed to upload photo');
-            }
         },
         addComment: async (parent, { postId, commentText }, context) => {
             if (context.user) {

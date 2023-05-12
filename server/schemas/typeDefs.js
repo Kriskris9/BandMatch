@@ -56,8 +56,6 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    imageUpload(file: Float!): Profile!
-
     addProfileCard(
       experience: String
       instrument: String
@@ -65,7 +63,6 @@ const typeDefs = gql`
       image: String
       text: String
     ): profileCard
-
 
 
     addPost(postText: String!, image: String!): Post
