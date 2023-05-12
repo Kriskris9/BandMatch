@@ -1,104 +1,64 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Profile {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    firstName: String
-    lastName: String
-    experience: String
-    instruments: String
-    genres: String
-    bio: String
-    location: String
-    socialMedia: String
+    _id: ID!
+    username: String!
+    email: String!
+    password: String!
+    bio: String!
+    post: Post
+    location: String!
+    videos: [String]
   }
-  
 
-  type BandMember {
+  type Post {
     _id: ID
-    lookingForBand: Boolean
     skills: String
-    userId: [Profile]
-    createdAt: Date
-    updatedAt: Date
+    experience: String!
+    instrument: String!
+    genres: String!
+    image: String!
   }
 
-    type Message {
-    _id: ID
-    messageText: String
-    createdAt: Date
-    senderId: Profile
-    receiverId: Profile
-    }
-
+  type Comment {
+    _id: ID!
+    commentText: String!
+    username: Profile!
+  }
 
   type Auth {
     token: ID!
     profile: Profile
   }
 
-type Query {
-    profiles: [Profile]
+  type Query {
+    posts: [Post]
+    post(username: String!): Post
     profile(username: String!): Profile
-    bandMembers: [BandMember]
-    bandMember(_id: ID!): BandMember
-    messages: [Message]
-    message(_id: ID!): Message
-    }
+    me: Profile
+  }
 
-type Mutation {
-    addProfile(
-        username: String!
-        email: String!
-        password: String!
-        firstName: String!
-        lastName: String!
-        experience: String!
-        instruments: String!
-        genres: String!
-        bio: String!
-        location: String!
-        socialMedia: String!
-    ): Auth
-    addBandMember(
-        lookingForBand: Boolean!
-        skills: String!
-    ): BandMember
-    addMessage(
-        messageText: String!
-        senderId: ID!
-        receiverId: ID!
-    ): Message
-    removeProfile(profileId: ID!): Profile
-    removeBandMember(bandMemberId: ID!): BandMember
-    removeMessage(messageId: ID!): Message
-    updateProfile(
-        username: String
-        email: String
-        password: String
-        firstName: String
-        lastName: String
-        experience: String
-        instruments: String
-        genres: String
-        bio: String
-        location: String
-        socialMedia: String
-    ): Profile
-    updateBandMember(
-        lookingForBand: Boolean
-        skills: String
-    ): BandMember
-    updateMessage(
-        messageText: String
-        senderId: ID
-        receiverId: ID
-    ): Message
+  type Mutation {
+    addProfile(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    }
+    updateProfile(
+      bio: String
+      post: ID
+      location: String
+      videos: [String]
+    ): Profile
+    addPost(
+      skills: String
+      experience: String!
+      instrument: String!
+      genres: String!
+      image: String!
+    ): Post
+    addComment(postId: ID!, commentText: String!): Comment
+    removePost(postId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Comment
+  }
 `;
 
 module.exports = typeDefs;

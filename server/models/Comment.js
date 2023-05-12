@@ -1,8 +1,8 @@
-const { Schema, Types } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const commentSchema = new Schema({
-  messageText: {
+  commentText: {
     type: String,
     required: true,
     minlength: 1,
@@ -14,12 +14,12 @@ const commentSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  commentAuthor: {
+  username: {
     type: Schema.Types.ObjectId,
     ref: "Profile",
   },
 });
 
-const Comment = Types("Comment", commentSchema);
+const Comment = model("Comment", commentSchema);
 
 module.exports = Comment;
