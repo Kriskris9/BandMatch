@@ -51,10 +51,12 @@ const typeDefs = gql`
 
   type Mutation {
     addProfile(username: String!, email: String!, password: String!): Auth
-
+  
     updateProfile(bio: String, profilePic: String): Profile
 
     login(email: String!, password: String!): Auth
+
+    imageUpload(file: Float!): Profile!
 
     addProfileCard(
       experience: String
@@ -63,6 +65,8 @@ const typeDefs = gql`
       image: String
       text: String
     ): profileCard
+
+
 
     addPost(postText: String!, image: String!): Post
 
