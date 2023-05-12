@@ -1,18 +1,40 @@
-import { gql } from "@apollo/client";
+import { gql } from "apollo-server-express";
 
-export const QUERY_POSTS = gql`
+export const GET_PROFILE = gql`
+  query profile($username: String!) {
+    profile(username: $username) {
+      _id
+      username
+      email
+      password
+      posts
+      profileCard
+      bio
+      profilePic
+    }
+  }
+`;
+
+export const GET_POSTS = gql`
   query posts {
     posts {
       _id
       createdAt
       postText
       image
-      comments
+      comments {
+        _id
+        commentText
+        username {
+          _id
+          username
+        }
+      }
     }
   }
 `;
 
-export const QUERY_PROFIILECARDS = gql`
+export const GET_PROFILE_CARDS = gql`
   query profileCards {
     profileCards {
       _id
@@ -26,9 +48,21 @@ export const QUERY_PROFIILECARDS = gql`
   }
 `;
 
-export const QUERY_USERPROFILE = gql`
-  query profile {
-    profile {
+export const GET_POST = gql`
+  query post($username: String!) {
+    post(username: $username) {
+      _id
+      createdAt
+      postText
+      image
+      comments
+    }
+  }
+`;
+
+export const GET_ME = gql`
+  query me {
+    me {
       _id
       username
       email
