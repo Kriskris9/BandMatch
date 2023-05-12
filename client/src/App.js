@@ -57,8 +57,12 @@ function App() {
                 element={<Signup />} 
               />
               <Route 
-                path="/thoughts/:thoughtId" 
-                element={<SingleThought />}  
+                path="/feed" 
+                element={<Feed />}  
+              />
+              <Route 
+                path="/users" 
+                element={<Users />}  
               />
             </Routes>
           </div>
