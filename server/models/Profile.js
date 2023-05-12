@@ -19,22 +19,21 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  post: [
+  posts: [
     {
       type: Schema.Types.ObjectId,
       ref: "Post",
     },
   ],
+  profileCard: {
+    type: Schema.Types.ObjectId,
+    ref: "profileCard",
+  },
   bio: {
     type: String,
-    required: true,
   },
-  location: {
+  profilePic: {
     type: String,
-    required: true,
-  },
-  videos: {
-    type: [String],
   },
 });
 

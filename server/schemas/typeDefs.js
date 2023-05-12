@@ -6,19 +6,28 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    bio: String!
-    post: Post
-    location: String!
-    videos: [String]
+    posts: [String]
+    profileCard: String
+    bio: String
+    profilePic: String
   }
 
   type Post {
     _id: ID
-    skills: String
-    experience: String!
-    instrument: String!
-    genres: String!
+    createdAt: String!
+    postText: String!
     image: String!
+    comments: [String!]
+  }
+
+  type profileCard {
+    _id: ID
+    createdAt: String!
+    experience: String
+    instrument: String
+    genres: String
+    image: String
+    text: String
   }
 
   type Comment {
@@ -33,30 +42,36 @@ const typeDefs = gql`
   }
 
   type Query {
-    posts: [Post]
-    post(username: String!): Post
     profile(username: String!): Profile
+    posts: [Post]
+    profileCards: [profileCard!]
+    post(username: String!): Post
     me: Profile
   }
 
   type Mutation {
     addProfile(username: String!, email: String!, password: String!): Auth
+
+    updateProfile(bio: String, profilePic: String): Profile
+
     login(email: String!, password: String!): Auth
-    updateProfile(
-      bio: String
-      post: ID
-      location: String
-      videos: [String]
-    ): Profile
-    addPost(
-      skills: String
-      experience: String!
-      instrument: String!
-      genres: String!
-      image: String!
-    ): Post
+
+    addProfileCard(
+      experience: String
+      instrument: String
+      genres: String
+      image: String
+      text: String
+    ): profileCard
+
+    addPost(postText: String!, image: String!): Post
+
     addComment(postId: ID!, commentText: String!): Comment
+
+    removeProfileCard(profileCardId: ID!): profileCard
+
     removePost(postId: ID!): Post
+
     removeComment(postId: ID!, commentId: ID!): Comment
   }
 `;
