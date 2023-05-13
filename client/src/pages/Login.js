@@ -1,26 +1,18 @@
 import React,{useState} from 'react';
-import {Link} from 'react-router-dom';
-import { useMutation, gql } from '@apollo/client';
-// import{LOGIN} from '../utils/mutations';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import{ PROFILE_LOGIN } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const LOGIN_MUTATION = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        id
-        username
-        email
-      }
-    }
-  }
-`;
 
-const Login = (prop) =>{
-    const [formState,setFormState] = useState({email:'',password:''});
-    const [login, { error, data }] = useMutation(LOGIN_MUTATION);
+
+const Login = () => {
+    const [formState, setFormState] = useState({
+    email:'',
+    password:'',
+  });
+  const [profileLogin, { error, data }] = useMutation(PROFILE_LOGIN);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -29,6 +21,7 @@ const Login = (prop) =>{
           ...formState,
           [name]: value,
         });
+        console.log('handle change succesful')
     };
 
     const handleFormSubmit = async (event) =>{
@@ -36,21 +29,22 @@ const Login = (prop) =>{
         console.log(formState);
         
     try{
-        const {data} = await login({
-            variable:{...formState},
+        const {data} = await profileLogin({
+            variables:{...formState},
         });
-        Auth.login(data.login.token);
-        }
-    catch(err){
-        console.error(err)
-
-        }
-
+        Auth.profileLogin(data.login.token);
+      } catch (e) {
+        console.log(e);
+        console.log('unable to login')
+      }
+//FORM DEFAULT
         setFormState({
             email: '',
             password:'',
         });
     };
+
+
     return(
         <main className="flex-row justify-center mb-4">
           <div className="col-12 col-lg-10">
@@ -60,7 +54,7 @@ const Login = (prop) =>{
                 {data ? (
                   <p>
                     You are now logged in {' '}
-                    <Link to="/feed">back to the homepage.</Link>
+                    <Link to="/">back to the homepage.</Link>
                   </p>
                 ) : (
                   <form onSubmit={handleFormSubmit}>
@@ -74,7 +68,7 @@ const Login = (prop) =>{
                     />
                     <input
                       className="form-input"
-                      placeholder="PASSWORD"
+                      placeholder="******"
                       name="password"
                       type="password"
                       value={formState.password}
