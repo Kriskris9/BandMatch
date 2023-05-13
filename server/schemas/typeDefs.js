@@ -47,6 +47,7 @@ const typeDefs = gql`
     profileCards: [profileCard!]
     post(username: String!): Post
     me: Profile
+    protectedQuery: String
   }
 
   type Mutation {

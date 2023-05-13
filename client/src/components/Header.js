@@ -27,7 +27,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="mx-1">
-              <Link className="btn btn-lg btn-light m-2" to="/feed">
+              <Link className="btn btn-lg btn-light m-2" to="/">
                 Feed
               </Link>
             </li>
@@ -42,6 +42,9 @@ const Header = () => {
                 <button className="btn btn-lg btn-light m-2" onClick={logout}>
                   Logout
                 </button>
+                {/* <Link className="btn btn-lg btn-light m-2" to="/">
+                Home
+              </Link> */}
               </>
             ) : (
               <li>

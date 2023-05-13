@@ -1,12 +1,26 @@
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
-import {useMutation} from '@apollo/client';
-import{LOGIN} from '../utils/mutations';
+import { useMutation, gql } from '@apollo/client';
+// import{LOGIN} from '../utils/mutations';
+
 import Auth from '../utils/auth';
+
+const LOGIN_MUTATION = gql`
+  mutation Login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        id
+        username
+        email
+      }
+    }
+  }
+`;
 
 const Login = (prop) =>{
     const [formState,setFormState] = useState({email:'',password:''});
-    const [login, { error, data }] = useMutation(LOGIN);
+    const [login, { error, data }] = useMutation(LOGIN_MUTATION);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -46,7 +60,7 @@ const Login = (prop) =>{
                 {data ? (
                   <p>
                     You are now logged in {' '}
-                    <Link to="/">back to the homepage.</Link>
+                    <Link to="/feed">back to the homepage.</Link>
                   </p>
                 ) : (
                   <form onSubmit={handleFormSubmit}>
