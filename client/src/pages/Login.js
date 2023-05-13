@@ -7,12 +7,12 @@ import Auth from '../utils/auth';
 
 
 
-const Login = () => {
+const Login = (props) => {
     const [formState, setFormState] = useState({
     email:'',
     password:'',
   });
-  const [profileLogin, { error, data }] = useMutation(PROFILE_LOGIN);
+  const [login, { error, data }] = useMutation(PROFILE_LOGIN);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -21,7 +21,6 @@ const Login = () => {
           ...formState,
           [name]: value,
         });
-        console.log('handle change succesful')
     };
 
     const handleFormSubmit = async (event) =>{
@@ -29,10 +28,10 @@ const Login = () => {
         console.log(formState);
         
     try{
-        const {data} = await profileLogin({
+        const {data} = await login({
             variables:{...formState},
         });
-        Auth.profileLogin(data.login.token);
+        Auth.login(data.login.token);
       } catch (e) {
         console.log(e);
         console.log('unable to login')

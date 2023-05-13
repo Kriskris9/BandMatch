@@ -66,11 +66,11 @@ const resolvers = {
             );
             return updatedUser;
         },
-        profileLogin: async (parent, { email, password }) => {
+        login: async (parent, { email, password }) => {
             const profile = await Profile.findOne({ email });
 
             if (!profile) {
-                throw new AuthenticationError("No user found with this email address");
+                throw new AuthenticationError("No user found with this email");
             }
             const correctPw = await profile.isCorrectPassword(password);
             if (!correctPw) {
