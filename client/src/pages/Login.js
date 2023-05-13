@@ -1,12 +1,18 @@
 import React,{useState} from 'react';
-import {Link} from 'react-router-dom';
-import {useMutation} from '@apollo/client';
-import{LOGIN} from '../utils/mutations';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import{ PROFILE_LOGIN } from '../utils/mutations';
+
 import Auth from '../utils/auth';
 
-const Login = (prop) =>{
-    const [formState,setFormState] = useState({email:'',password:''});
-    const [login, { error, data }] = useMutation(LOGIN);
+
+
+const Login = (props) => {
+    const [formState, setFormState] = useState({
+    email:'',
+    password:'',
+  });
+  const [login, { error, data }] = useMutation(PROFILE_LOGIN);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -23,20 +29,21 @@ const Login = (prop) =>{
         
     try{
         const {data} = await login({
-            variable:{...formState},
+            variables:{...formState},
         });
         Auth.login(data.login.token);
-        }
-    catch(err){
-        console.error(err)
-
-        }
-
+      } catch (e) {
+        console.log(e);
+        console.log('unable to login')
+      }
+//FORM DEFAULT
         setFormState({
             email: '',
             password:'',
         });
     };
+
+
     return(
         <main className="flex-row justify-center mb-4">
           <div className="col-12 col-lg-10">
@@ -60,7 +67,7 @@ const Login = (prop) =>{
                     />
                     <input
                       className="form-input"
-                      placeholder="PASSWORD"
+                      placeholder="******"
                       name="password"
                       type="password"
                       value={formState.password}
