@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import "./styles/header.css";
 
 const Header = () => {
   const logout = (event) => {
@@ -9,43 +10,41 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header>
+      <div className="header-container">
         <div>
-          <h1 className="m-0">BandMatch</h1>
+          <h1>
+            <Link className="header-link" to="/feed">
+              BandMatch
+            </Link>
+          </h1>
         </div>
         <nav>
-          <ul className="flex-row align-center">
-            <li className="mx-1">
-              <Link className="btn btn-lg btn-light m-2" to="/users">
+          <ul>
+            <li>
+              <Link className="header-link" to="/users">
                 Users
               </Link>
             </li>
-            <li className="mx-1">
-              <Link className="btn btn-lg btn-light m-2" to="/profile">
+            <li>
+              <Link className="header-link" to="/profile">
                 Profile
               </Link>
             </li>
-            <li className="mx-1">
-              <Link className="btn btn-lg btn-light m-2" to="/feed">
-                Feed
-              </Link>
-            </li>
-            <li className="mx-1">
-              <Link className="btn btn-lg btn-light m-2" to="/login">
+
+            <li>
+              <Link className="header-link" to="/login">
                 Login
               </Link>
             </li>
             {Auth.loggedIn() ? (
               <>
                 <span>Hey there, {Auth.getProfile().data.username}!</span>
-                <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                  Logout
-                </button>
+                <button onClick={logout}>Logout</button>
               </>
             ) : (
               <li>
-                <Link className="btn btn-lg btn-light m-2" to="/signup">
+                <Link className="header-link" to="/signup">
                   Signup
                 </Link>
               </li>

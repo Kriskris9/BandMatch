@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from "@apollo/client";
 
 export const GET_PROFILE = gql`
   query profile($username: String!) {
@@ -34,7 +34,7 @@ export const GET_POSTS = gql`
   }
 `;
 
-export const GET_PROFILE_CARDS = gql`
+export const QUERY_GET_PROFILE_CARDS = gql`
   query profileCards {
     profileCards {
       _id
