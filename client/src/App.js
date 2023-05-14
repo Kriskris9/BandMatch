@@ -18,7 +18,6 @@ const styles = {
   app: {
     backgroundColor: "#FAF9F6",
     margin: "0",
-    height: "100vh",
   },
 };
 

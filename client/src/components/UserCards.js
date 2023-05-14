@@ -26,12 +26,33 @@ const UserCards = () => {
             <img className="profilecard-img"></img>
           </div>
           <div className="info-container">
-            <span className="username">USERNAME</span>
-            <span className="info">Genres: TEST</span>
-            <span className="info">Instruments: TEST</span>
-            <span className="info">Location: TEST</span>
+            <h2 className="username">USERNAME</h2>
+            <p className="info">Genres: TEST</p>
+
+            <p className="info">Instruments: TEST</p>
+            <p className="info">Location: TEST</p>
             <div className="about">
-              <span>About Me</span>
+              <h3>About Me</h3>
+              <p>Experience: TEST</p>
+              <p>About section text goes here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="feed-post">
+        <div className="post-container">
+          <div className="image-container">
+            <img className="profilecard-img"></img>
+          </div>
+          <div className="info-container">
+            <h2 className="username">USERNAME</h2>
+            <p className="info">Genres: TEST</p>
+
+            <p className="info">Instruments: TEST</p>
+            <p className="info">Location: TEST</p>
+            <div className="about">
+              <h3>About Me</h3>
+              <p>Experience: TEST</p>
               <p>About section text goes here</p>
             </div>
           </div>
