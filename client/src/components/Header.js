@@ -21,33 +21,35 @@ const Header = () => {
         </div>
         <nav>
           <ul>
-            <li>
-              <Link className="header-link" to="/users">
-                Users
-              </Link>
-            </li>
-            <li>
-              <Link className="header-link" to="/profile">
-                Profile
-              </Link>
-            </li>
-
-            <li>
-              <Link className="header-link" to="/login">
-                Login
-              </Link>
-            </li>
-            {Auth.loggedIn() ? (
+            {Auth.getToken() ? (
               <>
-                <span>Hey there, {Auth.getProfile().data.username}!</span>
-                <button onClick={logout}>Logout</button>
+                <li>
+                  <Link className="header-link" to="/users">
+                    Users
+                  </Link>
+                </li>
+                <li>
+                  <Link className="header-link" to="/profile">
+                    Profile
+                  </Link>
+                </li>
+                <a className="header-link" onClick={logout} to="/login">
+                  Logout
+                </a>
               </>
             ) : (
-              <li>
-                <Link className="header-link" to="/signup">
-                  Signup
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link className="header-link" to="/signup">
+                    Signup
+                  </Link>
+                </li>
+                <li>
+                  <Link className="header-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </nav>
