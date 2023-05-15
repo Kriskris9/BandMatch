@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -16,6 +15,7 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -53,7 +53,7 @@ const Signup = () => {
               placeholder="Your username"
               name="username"
               type="text"
-              value={formState.name}
+              value={formState.username}
               onChange={handleChange}
             />
             <input
