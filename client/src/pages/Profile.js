@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Profile() {
+
+
+const Profile = () => {
   return (
-    <div className='profile-container'>Profile</div>
-  )
-}
+  <></>
+  );
+};
 
 export default Profile;
