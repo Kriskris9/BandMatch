@@ -1,4 +1,5 @@
 import React from "react";
+import FeedComponent from "../components/FeedComponent";
 
 function Feed() {
   return (

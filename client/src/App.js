@@ -13,6 +13,7 @@ import Footer from "../src/components/Footer";
 import Login from "../src/pages/Login";
 import Signup from "../src/pages/SignUp";
 import Users from "../src/pages/Users";
+import Feed from "../src/pages/Feed";
 
 const styles = {
   app: {
@@ -55,6 +56,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/users" element={<Users />} />
+            <Route path="/feed" element={<Feed />} />
           </Routes>
           <Footer />
         </div>
