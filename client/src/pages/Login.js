@@ -5,8 +5,8 @@ import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 import "./styles/login.css";
 
-const Login = (prop) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+const Login = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
@@ -21,14 +21,15 @@ const Login = (prop) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-
     try {
       const { data } = await login({
-        variable: { ...formState },
+        variables: { ...formState },
       });
+
       Auth.login(data.login.token);
-    } catch (err) {
-      console.error(err);
+      console.log(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
 
     setFormState({
@@ -43,7 +44,7 @@ const Login = (prop) => {
 
         {data ? (
           <p>
-            You are now logged in <Link to="/">back to the homepage.</Link>
+            You are now logged in <Link to="/feed">back to the homepage.</Link>
           </p>
         ) : (
           <form className="formbox" onSubmit={handleFormSubmit}>

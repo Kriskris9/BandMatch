@@ -14,6 +14,7 @@ import Login from "../src/pages/Login";
 import Signup from "../src/pages/SignUp";
 import Users from "../src/pages/Users";
 import Feed from "../src/pages/Feed";
+import Profile from "../src/pages/Profile";
 
 const styles = {
   app: {
@@ -57,6 +58,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/users" element={<Users />} />
             <Route path="/feed" element={<Feed />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
           <Footer />
         </div>

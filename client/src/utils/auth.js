@@ -12,7 +12,7 @@ class AuthService {
 
   isTokenExpired(token) {
     const decoded = decode(token);
-    if (decoded.exp < Date.now()) {
+    if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem("id_token");
       return true;
     }
@@ -25,7 +25,8 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem("id_token", idToken);
-    window.location.assign("/");
+    console.log(idToken);
+    window.location.assign("/feed");
   }
 
   logout() {

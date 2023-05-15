@@ -62,7 +62,6 @@ export const ADD_PROFILE_CARD = gql`
   }
 `;
 
-// Add a new post
 export const ADD_POST = gql`
   mutation addPost($postText: String!, $image: String!) {
     addPost(postText: $postText, image: $image) {
