@@ -1,12 +1,11 @@
 import React from 'react'
-import Widget from '../components/UploadWidget'
 
-function Profile() {
+
+
+const Profile = () => {
   return (
-    <div>
-      <Widget/>
-      </div>
-  )
-}
+  <></>
+  );
+};
 
-export default Profile
+export default Profile;
