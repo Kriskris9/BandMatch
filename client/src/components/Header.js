@@ -21,7 +21,7 @@ const Header = () => {
         </div>
         <nav>
           <ul>
-            {Auth.getToken() ? (
+            {Auth.loggedIn() ? (
               <>
                 <li>
                   <Link className="header-link" to="/users">
