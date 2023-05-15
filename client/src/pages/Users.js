@@ -1,19 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-import { GET_PROFILE_CARDS } from "../utils/mutations";
-import Auth from "../utils/auth";
+import React from "react";
+import { useQuery } from "@apollo/client";
+import UserCards from "../components/UserCards";
+import { QUERY_GET_PROFILE_CARDS } from "../utils/queries";
+
+// const Users = () => {
+//   const { loading, data } = useQuery(QUERY_GET_PROFILE_CARDS);
+//   const cards = data?.profileCards || [];
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
+
+//   return (
+//     <div>
+//       <UserCards cards={cards} />
+//     </div>
+//   );
+// };
 
 const Users = () => {
-  const { loading, data } = useQuery(GET_PROFILE_CARDS);
-
-  const usernames = data?.map((profile) => profile.username) || [];
-
   return (
     <div>
-      {usernames.map((username) => (
-        <div key={username}>{username}</div>
-      ))}
+      <UserCards />
     </div>
   );
 };
