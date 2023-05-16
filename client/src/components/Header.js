@@ -7,6 +7,7 @@ const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    window.location.assign("/login");
   };
 
   return (
@@ -33,9 +34,9 @@ const Header = () => {
                     Profile
                   </Link>
                 </li>
-                <a className="header-link" onClick={logout} to="/login">
+                <Link className="header-link" onClick={logout} to="/login">
                   Logout
-                </a>
+                </Link>
               </>
             ) : (
               <>

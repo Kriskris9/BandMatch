@@ -18,6 +18,16 @@ const FeedComponent = () => {
             </div>
           </div>
         </div>
+        <form className="comment-form">
+          <input
+            type="text"
+            className="comment-input"
+            placeholder="Add a comment..."
+          />
+          <button type="submit" className="comment-submit">
+            Post
+          </button>
+        </form>
       </div>
     </main>
   );

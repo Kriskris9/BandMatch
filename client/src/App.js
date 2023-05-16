@@ -15,6 +15,7 @@ import Signup from "../src/pages/SignUp";
 import Users from "../src/pages/Users";
 import Feed from "../src/pages/Feed";
 import Profile from "../src/pages/Profile";
+import Auth from "../src/utils/auth";
 
 const styles = {
   app: {
@@ -54,11 +55,20 @@ function App() {
         <div style={styles.app}>
           <Header />
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/profile" element={<Profile />} />
+            {Auth.loggedIn() ? (
+              <>
+                <Route path="/users" element={<Users />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/feed" element={<Feed />} />
+              </>
+            ) : (
+              <>
+                <Route path="/" element={<Login />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/feed" element={<Feed />} />
+              </>
+            )}
           </Routes>
           <Footer />
         </div>

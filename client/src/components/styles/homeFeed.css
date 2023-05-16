@@ -14,6 +14,8 @@
   width: 100%;
   max-width: 600px;
   background-color: #fff;
+  padding: 10px;
+  border-radius: 14px;
 }
 
 .feed-post-container {
@@ -61,4 +63,50 @@
 .caption {
   margin-top: 16px;
   word-wrap: break-word;
+}
+
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment-username {
+  font-weight: bold;
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.comment-input {
+  flex-grow: 1;
+  padding: 8px 10px;
+  border: none;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.comment-submit {
+  margin-left: 10px;
+  padding: 8px 12px;
+  background-color: #3897f0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comment-submit:hover {
+  background-color: #3182ce;
+}
+
+.comment-submit:focus {
+  outline: none;
 }
