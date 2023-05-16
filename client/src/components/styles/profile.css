@@ -1,7 +1,6 @@
 .profile {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
   height: 100vh;
   margin-top: 30px;
 }
@@ -43,18 +42,10 @@
   margin-top: 40px;
 }
 
-.profile-post {
-  background-color: #ffffff;
-  border: 1px solid #e9ebee;
-  border-radius: 8px;
-  padding: 20px;
-  width: 80%;
-}
-
 .feed-post {
   display: flex;
   flex-direction: column;
-  border: none;
+  width: 80%;
 }
 
 .profile-feed-post-container {
@@ -78,9 +69,3 @@
 .profile-info-container {
   padding: 10px;
 }
-
-/* .profile-caption {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-} */

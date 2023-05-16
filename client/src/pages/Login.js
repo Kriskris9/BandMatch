@@ -44,7 +44,7 @@ const Login = () => {
 
         {data ? (
           <p>
-            You are now logged in <Link to="/feed">back to the homepage.</Link>
+            <Link to="/feed"></Link>
           </p>
         ) : (
           <form className="formbox" onSubmit={handleFormSubmit}>
