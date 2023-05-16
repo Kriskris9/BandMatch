@@ -52,6 +52,7 @@ export const ADD_PROFILE_CARD = gql`
       image: $image
       text: $text
       location: $location
+      username: $username
     ) {
       _id
       createdAt
@@ -61,6 +62,7 @@ export const ADD_PROFILE_CARD = gql`
       image
       text
       location
+      username
     }
   }
 `;

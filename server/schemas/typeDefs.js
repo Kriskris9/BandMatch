@@ -22,6 +22,7 @@ const typeDefs = gql`
 
   type profileCard {
     _id: ID
+    username: String!
     createdAt: String!
     experience: String
     instrument: String

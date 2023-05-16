@@ -41,6 +41,7 @@ export const QUERY_GET_PROFILE_CARDS = gql`
       _id
       createdAt
       experience
+      username
       instrument
       genres
       image
