@@ -1,6 +1,8 @@
 import React, {useEffect} from "react";
 import "./styles/userFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
+
+
 import { QUERY_GET_PROFILE_CARDS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
@@ -22,7 +24,7 @@ useEffect(()=> {
             <div className="image-container">
               <img
                 className="profilecard-img"
-                src={user.profilePic || img}
+                src={user.image || img}
                 alt="profile pic"
               />
             </div>
@@ -35,7 +37,7 @@ useEffect(()=> {
               <div className="about">
                 <h3>About Me</h3>
                 <p>Experience: {user.experience}</p>
-                <p>{user.text}</p>
+                <p> {user.text} </p>
               </div>
             </div>
           </div>
