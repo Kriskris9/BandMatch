@@ -2,15 +2,18 @@ import React from "react";
 import "./styles/profile.css";
 import img from "./testIMG/apple-music-note.jpg";
 
-const UserCards = () => {
+ 
+
+
+const UserCards = ({username , bio, caption}) => {
   return (
     <main className="profile">
       <div className="profile-header">
         <div className="profile-info">
           <img className="profile-pic" src={img}></img>
           <div className="profile-text">
-            <span className="profile-username">Username</span>
-            <span className="profile-bio">This is my bio</span>
+            <span className="profile-username"> username: {username}</span>
+            <span className="profile-bio">bio: {bio}</span>
           </div>
         </div>
       </div>
@@ -21,7 +24,7 @@ const UserCards = () => {
               <div className="profile-image-post-container">
                 <img className="profile-post-img" src={img}></img>
                 <div className="profile-info-container">
-                  <span className="profile-caption">Caption goes here</span>
+                  <span className="profile-caption">Caption: {caption}</span>
                 </div>
               </div>
             </div>
