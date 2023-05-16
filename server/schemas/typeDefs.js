@@ -28,6 +28,7 @@ const typeDefs = gql`
     genres: String
     image: String
     text: String
+    location: String
   }
 
   type Comment {
@@ -63,6 +64,7 @@ const typeDefs = gql`
       genres: String
       image: String
       text: String
+      location: String
     ): profileCard
 
     addPost(postText: String!, image: String!): Post

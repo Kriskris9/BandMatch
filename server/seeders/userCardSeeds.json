@@ -2,13 +2,15 @@
     {
       "experience": "5 years",
       "instrument": "Guitar",
+      "location": "Los Angeles",
       "genres": "Rock, Blues, Jazz",
-      "image": "https://example.com/image1.jpg",
+      "image": "https://ichef.bbci.co.uk/news/976/cpsprodpb/18357/production/_121995199_gettyimages-1172292629.jpg.webp",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam semper nibh, vitae varius velit dictum ut."
     },
     {
       "experience": "10 years",
       "instrument": "Drums",
+      "location": "San Francisco",
       "genres": "Metal, Punk, Alternative",
       "image": "https://example.com/image2.jpg",
       "text": "Fusce laoreet eget dui vel bibendum. Aenean condimentum quis nulla id egestas. Vestibulum dapibus augue ac lorem lacinia euismod."
@@ -16,6 +18,7 @@
     {
       "experience": "3 years",
       "instrument": "Bass",
+      "location": "New York",
       "genres": "Funk, Reggae, Hip Hop",
       "image": "https://example.com/image3.jpg",
       "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas nec consequat nisi, sed tempus est."
@@ -23,6 +26,7 @@
     {
         "experience": "4 years",
         "instrument": "Guitar",
+        "location": "Santa Monica",
         "genres": "Rock, Blues, Jazz",
         "image": "https://example.com/image4.jpg",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam semper nibh, vitae varius velit dictum ut."

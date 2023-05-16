@@ -11,6 +11,7 @@ export const GET_PROFILE = gql`
       profileCard
       bio
       profilePic
+      location
     }
   }
 `;
@@ -44,6 +45,7 @@ export const QUERY_GET_PROFILE_CARDS = gql`
       genres
       image
       text
+      location
     }
   }
 `;

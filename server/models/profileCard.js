@@ -25,8 +25,13 @@ const profileCardSchema = new Schema({
   text: {
     type: String,
   },
+
+location: {
+    type: String,
+}
 });
 
 const profileCard = model("profileCard", profileCardSchema);
 
 module.exports = profileCard;
+

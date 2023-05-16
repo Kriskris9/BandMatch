@@ -1,13 +1,15 @@
 import React from "react";
 import "./styles/profile.css";
-import img from "./testIMG/apple-music-note.jpg";
+import img from "../assets/Drake.png";
+import img2 from "../assets/1.png";
+
 
 const UserCards = () => {
   return (
     <main className="profile">
       <div className="profile-header">
         <div className="profile-info">
-          <img className="profile-pic" src={img}></img>
+          <img className="profile-pic" src={img2}></img>
           <div className="profile-text">
             <span className="profile-username">Username</span>
             <span className="profile-bio">This is my bio</span>

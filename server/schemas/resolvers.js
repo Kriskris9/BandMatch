@@ -100,6 +100,7 @@ const resolvers = {
           experience,
           instrument,
           genres,
+          location,
           image,
           text,
           username: context.profile.username,
