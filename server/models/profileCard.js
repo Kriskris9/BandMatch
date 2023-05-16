@@ -7,6 +7,10 @@ const profileCardSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  location: {
+    type: String,
+
+    },
   experience: {
     type: String,
     required: true,
@@ -24,14 +28,9 @@ const profileCardSchema = new Schema({
   },
   text: {
     type: String,
-  },
-
-location: {
-    type: String,
-}
+  }
 });
 
 const profileCard = model("profileCard", profileCardSchema);
 
 module.exports = profileCard;
-

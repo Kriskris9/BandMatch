@@ -15,7 +15,9 @@ const Users = () => {
     <div className="container">
       <div className="row">
           <div className="col-4">
-            <UserCards />
+            <UserCards 
+              cards={cards}
+            />
           </div>
       </div>
     </div>

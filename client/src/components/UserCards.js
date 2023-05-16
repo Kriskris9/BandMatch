@@ -25,7 +25,7 @@ const Users = () => {
               />
             </div>
             <div className="user-info-container">
-              <h2 className="username">{user.username}</h2>
+              <h2 className="name">Username {user.username}</h2>
               <p className="info">Genres: {user.genres}</p>
               <p className="info">Instruments: {user.instrument}</p>
                <p className="info">Location: {user.location}</p>
