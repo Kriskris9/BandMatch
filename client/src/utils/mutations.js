@@ -43,6 +43,7 @@ export const ADD_PROFILE_CARD = gql`
     $genres: String
     $image: String
     $text: String
+    $location: String
   ) {
     addProfileCard(
       experience: $experience
@@ -50,6 +51,8 @@ export const ADD_PROFILE_CARD = gql`
       genres: $genres
       image: $image
       text: $text
+      location: $location
+      username: $username
     ) {
       _id
       createdAt
@@ -58,6 +61,8 @@ export const ADD_PROFILE_CARD = gql`
       genres
       image
       text
+      location
+      username
     }
   }
 `;
@@ -104,6 +109,7 @@ export const REMOVE_PROFILE_CARD = gql`
       genres
       image
       text
+      location
     }
   }
 `;

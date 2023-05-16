@@ -11,6 +11,7 @@ export const GET_PROFILE = gql`
       profileCard
       bio
       profilePic
+      location
     }
   }
 `;
@@ -40,10 +41,12 @@ export const QUERY_GET_PROFILE_CARDS = gql`
       _id
       createdAt
       experience
+      username
       instrument
       genres
       image
       text
+      location
     }
   }
 `;
