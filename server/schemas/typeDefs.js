@@ -22,7 +22,7 @@ const typeDefs = gql`
 
   type profileCard {
     _id: ID
-    username: String!
+    profile: Profile
     createdAt: String!
     experience: String
     instrument: String
@@ -46,7 +46,7 @@ const typeDefs = gql`
   type Query {
     profile(username: String!): Profile
     posts: [Post]
-    profileCards: [profileCard!]
+    profileCards: [profileCard]
     post(username: String!): Post
     me: Profile
     protectedQuery: String

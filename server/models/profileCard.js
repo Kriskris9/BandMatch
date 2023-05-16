@@ -7,10 +7,9 @@ const profileCardSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  username: {
+  profile: {
     type: Schema.Types.ObjectId,
     ref: "Profile",
-   
   },
   location: {
     type: String,
