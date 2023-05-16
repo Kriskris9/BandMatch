@@ -7,6 +7,15 @@ const profileCardSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  username: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile",
+   
+  },
+  location: {
+    type: String,
+
+    },
   experience: {
     type: String,
     required: true,
@@ -24,7 +33,7 @@ const profileCardSchema = new Schema({
   },
   text: {
     type: String,
-  },
+  }
 });
 
 const profileCard = model("profileCard", profileCardSchema);

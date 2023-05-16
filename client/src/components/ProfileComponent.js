@@ -18,26 +18,12 @@ const UserCards = ({username , bio, caption}) => {
         </div>
       </div>
       <div className="profile-post-containers">
-        <div className="profile-post">
-          <div className="feed-post">
-            <div className="profile-feed-post-container">
-              <div className="profile-image-post-container">
-                <img className="profile-post-img" src={img}></img>
-                <div className="profile-info-container">
-                  <span className="profile-caption">Caption: {caption}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="profile-post">
-          <div className="feed-post">
-            <div className="profile-feed-post-container">
-              <div className="profile-image-post-container">
-                <img className="profile-post-img" src={img}></img>
-                <div className="profile-info-container">
-                  <span className="profile-caption">Caption goes here</span>
-                </div>
+        <div className="feed-post">
+          <div className="profile-feed-post-container">
+            <div className="profile-image-post-container">
+              <img className="profile-post-img" src={img}></img>
+              <div className="profile-info-container">
+                <span className="profile-caption">Caption goes here</span>
               </div>
             </div>
           </div>

@@ -19,9 +19,11 @@ const resolvers = {
     },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return profileCard.find(params).sort({ createdAt: -1 });
-    },
+      const profileCards = await profileCard.find(params).sort({ createdAt: -1 });
+    
+      return profileCards;
 
+    },
     me: async (parent, args, context) => {
       if (context.profile) {
         return Profile.findOne({ _id: context.profile._id })
@@ -100,6 +102,7 @@ const resolvers = {
           experience,
           instrument,
           genres,
+          location,
           image,
           text,
           username: context.profile.username,
