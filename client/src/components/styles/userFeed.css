@@ -5,7 +5,7 @@
   max-width: 40%;
   margin: 0 auto;
   background-color: #fff;
-  border: 2px solid #e6e6e6;
+  border: 2px solid #e2e2e2;
   border-radius: 10px;
   margin-top: 50px;
 }
@@ -19,6 +19,7 @@
 
 .profilecard-img {
   position: absolute;
+  border-radius: 9px 9px 0 0;
   top: 0;
   left: 0;
   width: 100%;
