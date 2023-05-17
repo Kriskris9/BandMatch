@@ -17,7 +17,7 @@ const Users = () => {
       <div className="row">
           <div className="col-4">
             <UserCards 
-              cards={cards}
+              usercards={cards}
             />
           </div>
       </div>

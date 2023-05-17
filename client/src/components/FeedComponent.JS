@@ -1,6 +1,8 @@
 import React, {useEffect} from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
+import CreatePost from "./createPost";
+import Comment from "./Comment";
 
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -21,6 +23,7 @@ function FeedComponent () {
 
 return (
     <main className="feed">
+      <CreatePost />
       <div className="feed-post">
         <div className="feed-post-container">
           <div className="profile-pic-container">
@@ -34,16 +37,8 @@ return (
             </div>
           </div>
         </div>
-        <form className="comment-form">
-          <input
-            type="text"
-            className="comment-input"
-            placeholder="Add a comment..."
-          />
-          <button type="submit" className="comment-submit">
-            Post
-          </button>
-        </form>
+
+        <Comment />
       </div>
     </main>
 )}

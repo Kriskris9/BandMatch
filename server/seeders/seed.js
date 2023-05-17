@@ -11,6 +11,7 @@ const postSeeds = require('./postSeeds.json')
 
 
 
+
 db.once('open', async () => {
   try {
     await Profile.deleteMany({});

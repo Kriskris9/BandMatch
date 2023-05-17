@@ -7,9 +7,9 @@ const resolvers = {
     // profiles: async () => {
     //     return Profile.find().populate('posts');
     // },
-    
-    profile: async (parent, { username }) => {
-      Profile.findOne({ username }).populate("posts").populate("profileCard".populate("comments"));
+    profile: async (parent,args,context) => {
+      return Profile.findOne({ username:context.profile.username }).populate("posts").populate("profileCard");
+      
     },
     // post: async (parent, { username }) => {
     //   return Post.findOne({ username }).populate("comments");
@@ -80,6 +80,7 @@ const resolvers = {
       return { token, profile };
     },
     addPost: async (parent, { postText, image }, context) => {
+      console.log(context.profile);
       if (context.profile) {
         const newPost = await Post.create({
           postText,
