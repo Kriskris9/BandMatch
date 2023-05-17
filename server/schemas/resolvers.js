@@ -79,6 +79,7 @@ const resolvers = {
       return { token, profile };
     },
     addPost: async (parent, { postText, image }, context) => {
+      console.log(context.profile);
       if (context.profile) {
         const newPost = await Post.create({
           postText,

@@ -37,23 +37,8 @@ export const LOGIN = gql`
 `;
 
 export const ADD_PROFILE_CARD = gql`
-  mutation addProfileCard(
-    $experience: String
-    $instrument: String
-    $genres: String
-    $image: String
-    $text: String
-    $location: String
-  ) {
-    addProfileCard(
-      experience: $experience
-      instrument: $instrument
-      genres: $genres
-      image: $image
-      text: $text
-      location: $location
-      username: $username
-    ) {
+  mutation addProfileCard {
+    addProfileCard {
       _id
       createdAt
       experience
@@ -70,18 +55,8 @@ export const ADD_PROFILE_CARD = gql`
 export const ADD_POST = gql`
   mutation addPost($postText: String!, $image: String!) {
     addPost(postText: $postText, image: $image) {
-      _id
-      createdAt
       postText
       image
-      comments {
-        _id
-        commentText
-        username {
-          _id
-          username
-        }
-      }
     }
   }
 `;

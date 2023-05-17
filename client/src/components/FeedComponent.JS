@@ -1,10 +1,13 @@
 import React from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
+import CreatePost from "./createPost";
+import Comment from "./Comment";
 
 const FeedComponent = () => {
   return (
     <main className="feed">
+      <CreatePost />
       <div className="feed-post">
         <div className="feed-post-container">
           <div className="profile-pic-container">
@@ -18,16 +21,8 @@ const FeedComponent = () => {
             </div>
           </div>
         </div>
-        <form className="comment-form">
-          <input
-            type="text"
-            className="comment-input"
-            placeholder="Add a comment..."
-          />
-          <button type="submit" className="comment-submit">
-            Post
-          </button>
-        </form>
+
+        <Comment />
       </div>
     </main>
   );
