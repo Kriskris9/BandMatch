@@ -31,6 +31,8 @@ db.once("open", async () => {
       });
     }
 
+    await Profile.updateOne(userSeeds);
+
     await Post.create(postSeeds);
 
     await Comment.create(commentSeeds);

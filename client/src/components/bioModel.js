@@ -58,7 +58,6 @@ import "./styles/modal.css";
 
             {error && <p>Error: {error.message}</p>}
           </form>
-          <button className="create-btn">Update your profile</button>
         </div>
       </div>
     </div>
