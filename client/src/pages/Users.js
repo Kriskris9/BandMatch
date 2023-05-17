@@ -6,6 +6,7 @@ import { QUERY_GET_PROFILE_CARDS } from "../utils/queries";
 const Users = () => {
   const { loading, data } = useQuery(QUERY_GET_PROFILE_CARDS);
   const cards = data?.profileCards || [];
+  
 
   if (loading) {
     return <div>Loading...</div>;
