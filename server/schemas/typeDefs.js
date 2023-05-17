@@ -47,7 +47,7 @@ const typeDefs = gql`
   type Query {
     profile: Profile
     posts: [Post]
-    comment(_id: ID!): Comment
+    comment: Comment
     profileCards: [profileCard]
     post: Post
     me: Profile

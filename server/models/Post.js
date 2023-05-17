@@ -32,10 +32,10 @@ const postSchema = new Schema({
       },
     },
   ],
-  // profile: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Profile",
-  // },
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile",
+  },
 });
 
 const Post = model("Post", postSchema);

@@ -49,8 +49,8 @@ query ProfileCards {
 `;
 
 export const GET_POST = gql`
-  query post($username: String!) {
-    post(username: $username) {
+  query Post {
+    post {
       _id
       createdAt
       postText
