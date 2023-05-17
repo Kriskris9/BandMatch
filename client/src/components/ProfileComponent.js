@@ -34,7 +34,9 @@ const UserCards = ({ profile, bio }) => {
           </button>
         </div>
 
-        <div className="profile-post-containers">
+       
+      </div>
+      <div className="profile-post-containers">
           <div className="profile-feed-post">
             <div className="profile-feed-post-container">
               <div className="profile-image-post-container">
@@ -46,7 +48,6 @@ const UserCards = ({ profile, bio }) => {
             </div>
           </div>
         </div>
-      </div>
       {showModal && <Modal toggle={toggleModal} />}
     </main>
   );

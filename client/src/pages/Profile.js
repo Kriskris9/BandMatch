@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Navigate,useParams } from "react-router-dom";
 import ProfileComponent from "../components/ProfileComponent";
 
@@ -8,7 +8,9 @@ import { useQuery } from "@apollo/client";
 const Profile = () => {
   const {loading,data} = useQuery(GET_PROFILE)
   const profile = data?.profile || [];
-
+useEffect(()=>{
+  console.log(profile)
+})
   
 
   if (loading) {
