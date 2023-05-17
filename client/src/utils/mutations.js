@@ -70,7 +70,6 @@ export const ADD_COMMENT = gql`
       commentText
       }
     }
-  }
 `;
 
 export const REMOVE_PROFILE_CARD = gql`
