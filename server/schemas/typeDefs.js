@@ -44,7 +44,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    profile(username: String!): Profile
+    profile: Profile
     posts: [Post]
     profileCards: [profileCard]
     post(username: String!): Post
