@@ -85,10 +85,11 @@ const resolvers = {
         const newPost = await Post.create({
           postText,
           image,
-          username: context.profile.username,
+          profile: context.profile._id,
         });
 
         await Profile.findOneAndUpdate(
+          
           { _id: context.profile._id },
           { $addToSet: { post: newPost._id } }
         );

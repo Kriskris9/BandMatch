@@ -4,46 +4,44 @@ import { ADD_POST } from "../utils/mutations";
 import "./styles/createPost.css";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
+import UploadFile from "./UploadFile";
 
 function CreatePost() {
   const [captionText, setCaptionText] = useState("");
-  const [captionIMG, setCaptionIMG] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [uploadedImg, setUploadedImg] = useState(true)
 
-  const [addCaption, { error }] = useMutation(ADD_POST);
+  const [addPost, { error }] = useMutation(ADD_POST);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await addCaption({
+      const { data } = await addPost({
         variables: {
           postText: captionText,
-          image: captionIMG,
+          image: imageUrl,
         },
       });
+
       alert("Post created");
+      console.log(data)
 
       setCaptionText("");
-      setCaptionIMG("");
+      setImageUrl("");
+      setUploadedImg(false);
+
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === "captionText") {
-      setCaptionText(value);
-    }
+  const handleCaptionChange = (event) => {
+    setCaptionText(event.target.value);
   };
 
-  const handleIMG = (event) => {
-    const { name, value } = event.target;
-
-    if (name === "captionIMG") {
-      setCaptionIMG(value);
-    }
+  const handleImageUpload = (imageUrl) => {
+    setImageUrl(imageUrl);
   };
 
   return (
@@ -58,21 +56,13 @@ function CreatePost() {
                   name="captionText"
                   placeholder="Enter your caption"
                   value={captionText}
-                  onChange={handleChange}
+                  onChange={handleCaptionChange}
                 />
-                {/* <label htmlFor="image">Image:</label>
-            <input
-              id="image"
-              name="captionIMG"
-              placeholder="Enter image URL"
-              value={captionIMG}
-              onChange={handleIMG}
-            /> */}
               </div>
-              <div className="buttons">
-                <button type="submit">Post</button>
-                <button type="submit">Media</button>
-              </div>
+            </div>
+            <div className="buttons">
+              <UploadFile handleImageUpload={handleImageUpload} uploadedImg={uploadedImg} />
+              <button type="submit">Post</button>
             </div>
           </form>
         </>
