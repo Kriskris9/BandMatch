@@ -15,7 +15,7 @@ const UserCards = () => {
         </div>
       </div>
       <div className="profile-post-containers">
-        <div className="feed-post">
+        <div className="profile-feed-post">
           <div className="profile-feed-post-container">
             <div className="profile-image-post-container">
               <img className="profile-post-img" src={img}></img>

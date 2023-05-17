@@ -70,18 +70,8 @@ export const ADD_PROFILE_CARD = gql`
 export const ADD_POST = gql`
   mutation addPost($postText: String!, $image: String!) {
     addPost(postText: $postText, image: $image) {
-      _id
-      createdAt
       postText
       image
-      comments {
-        _id
-        commentText
-        username {
-          _id
-          username
-        }
-      }
     }
   }
 `;

@@ -1,10 +1,12 @@
 import React from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
+import CreatePost from "./createPost";
 
 const FeedComponent = () => {
   return (
     <main className="feed">
+      <CreatePost />
       <div className="feed-post">
         <div className="feed-post-container">
           <div className="profile-pic-container">
