@@ -30,9 +30,33 @@ db.once("open", async () => {
         username: (await Profile.findById(profileId)).username,
       });
     }
+
     await Post.create(postSeeds);
 
     await Comment.create(commentSeeds);
+
+   
+    const postIds = [];
+    for (let i = 0; i < postSeeds.length; i++) {
+      const { _id } = await Post.create(postSeeds[i]);
+      postIds.push(_id);
+    
+      const postIdToUpdate = postIds[Math.floor(Math.random() * postIds.length)];
+      const commentText = ''; // Set the default value for commentText
+      if (commentText) { // Add a condition to check if commentText is non-empty
+        const comment = new Comment({ commentText });
+        const comments = await Post.findOneAndUpdate(
+          { _id: postIdToUpdate },
+          {
+            $addToSet: {
+              comments: comment,
+            },
+          }
+        );
+      }
+    }
+
+
   } catch (err) {
     console.error(err);
     process.exit(1);

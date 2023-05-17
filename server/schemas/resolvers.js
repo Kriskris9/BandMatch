@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile, Post, profileCard } = require("../models");
+const { Profile, Post, profileCard, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -13,18 +13,20 @@ const resolvers = {
         .populate("profileCard");
     },
     post: async (parent, { username }) => {
-      return Post.findOne({ username }).populate("comments");
+      return Post.findOne({ _id:postId });
     },
-    posts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+    posts: 
+    async (parent, args) => {
+      // const params = username ? { username } : {}
+      const posts = await Post.find().sort({ createdAt: -1 }).populate("profile").populate("comments")
+    
+      return posts;
     },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
-      const profileCards = await profileCard
-        .find(params)
-        .sort({ createdAt: -1 })
-        .populate("profile");
+
+      const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")
+    
 
       return profileCards;
     },
@@ -49,7 +51,6 @@ const resolvers = {
       return "Protected query result";
     },
   },
-
   Mutation: {
     addProfile: async (parent, { username, email, password }) => {
       const profile = await Profile.create({
@@ -88,7 +89,7 @@ const resolvers = {
         const newPost = await Post.create({
           postText,
           image,
-          username: context.profile.username,
+          profile: context.profile._id,
         });
 
         await Profile.findOneAndUpdate(

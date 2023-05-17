@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaType } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const postSchema = new Schema({
@@ -27,11 +27,15 @@ const postSchema = new Schema({
         maxlength: 280,
       },
       commentAuthor: {
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
+        type: String,
+        required: true,
       },
     },
   ],
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile",
+  }
 });
 
 const Post = model("Post", postSchema);
