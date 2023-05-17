@@ -4,17 +4,21 @@ import ProfileComponent from "../components/ProfileComponent";
 
 import { GET_PROFILE } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-const Profile = () => {
-  const {loading, data} = useQuery(GET_PROFILE)
-  const user = data?.user || {};
-  return (
-    <>
-      <ProfileComponent
-        username ={user.username}
-        bio = {user.bio}
 
-      />
-    </>
+const Profile = () => {
+  const {loading,data} = useQuery(GET_PROFILE)
+  const profile = data?.profile || [];
+  return (
+    <div className="container">
+      <div className="row">
+          <div className="col-4">
+          <ProfileComponent 
+            profile={profile}
+          />
+          </div>
+      </div>
+    </div>
+  
   );
 };
 
