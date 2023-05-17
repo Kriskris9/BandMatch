@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./styles/userFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
 
-
 import { QUERY_GET_PROFILE_CARDS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 

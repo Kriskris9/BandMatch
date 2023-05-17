@@ -7,9 +7,10 @@ const resolvers = {
     // profiles: async () => {
     //     return Profile.find().populate('posts');
     // },
-    profile: async (parent,args,context) => {
-      return Profile.findOne({ username:context.profile.username }).populate("posts").populate("profileCard");
-      
+    profile: async (parent, args, context) => {
+      return Profile.findOne({ username: context.profile.username })
+        .populate("posts")
+        .populate("profileCard");
     },
     post: async (parent, { username }) => {
       return Post.findOne({ _id:postId });
@@ -23,8 +24,10 @@ const resolvers = {
     },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
+
       const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")
     
+
       return profileCards;
     },
     me: async (parent, args, context) => {
@@ -99,7 +102,11 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    addProfileCard: async (parent, { postText, image }, context) => {
+    addProfileCard: async (
+      parent,
+      { experience, instrument, genres, location, image, text },
+      context
+    ) => {
       if (context.profile) {
         const card = await profileCard.create({
           experience,
@@ -108,15 +115,15 @@ const resolvers = {
           location,
           image,
           text,
-          username: context.profile.username,
+          profile: context.profile,
         });
 
         await Profile.findOneAndUpdate(
           { _id: context.profile._id },
           { $addToSet: { post: card._id } }
         );
-
-        return card;
+        const populatedCard = await card.populate("profile");
+        return populatedCard;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
