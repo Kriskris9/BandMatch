@@ -23,16 +23,12 @@ query Post {
       createdAt
       postText
       image
-      profile {
-        username
-      }
       comments {
         _id
         createdAt
         commentText
-        commentAuthor
-      }
     }
+  }
   }
 `;
 

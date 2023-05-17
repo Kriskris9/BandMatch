@@ -19,16 +19,6 @@ const resolvers = {
       const params = username ? { username } : {}
       return Post.find(params).sort({ createdAt: -1 })
     },
-    // Comment: {
-    //   commentAuthor: async (parent) => {
-    //     try {
-    //       const profile = await Profile.findById(parent.commentAuthor);
-    //       return profile;
-    //     } catch (error) {
-    //       throw new Error('Failed to fetch profile for the comment author');
-    //     }
-    //   },
-    // },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
       const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")

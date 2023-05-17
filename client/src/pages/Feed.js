@@ -14,7 +14,7 @@ function Feed() {
 
   return (
     <div className="feed-container">
-      <FeedComponent posts={posts} /> {/* Pass the 'posts' prop */}
+      <FeedComponent posts={posts} /> 
     </div>
   );
 }

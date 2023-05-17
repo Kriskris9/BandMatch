@@ -17,7 +17,7 @@ const typeDefs = gql`
     createdAt: String!
     postText: String
     image: String
-    comments: [Comment!]!
+    comments: [Comment]
   }
 
   type profileCard {

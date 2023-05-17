@@ -29,24 +29,36 @@ db.once('open', async () => {
     for(var i=0; i < userCardSeeds.length; i++ ){
       const {_id} = await profileCard.create({...userCardSeeds[i], profile: profileId[Math.floor(Math.random()*profileId.length)]});
     }
+    // await Post.create(postSeeds);
+    // await Comment.create(commentSeeds);
 
-    
+    const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
-      const profileId = profileIds[Math.floor(Math.random() * profileIds.length)];
-      const postData = { ...postSeeds[i], profile: profileId };
-      await Post.create(postData);
+    const {_id} = await Post.create(postSeeds[i]);
+    postIds.push(_id)
     }
 
     for (let i = 0; i < commentSeeds.length; i++) {
-      const profileId = profileIds[Math.floor(Math.random() * profileIds.length)];
-      const commentData = { ...commentSeeds[i], profile: profileId };
-      await Comment.create(commentData);
+      const { _id } = await Comment.create(commentSeeds[i]);
+      const comments = await Post.findOneAndUpdate(
+        { _id: postIds[Math.floor(Math.random()*postIds.length)] },
+        {
+          $addToSet: {
+            comments: _id,
+          },
+        }
+      );
     }
+
+    
+
+    
+
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
 
-  console.log('All done!');
+  console.log('all done!');
   process.exit(0);
 });
