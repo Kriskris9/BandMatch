@@ -15,9 +15,9 @@ const resolvers = {
       return Post.findOne({ _id:postId });
     },
     posts: 
-    async (parent, { username }) => {
-      const params = username ? { username } : {}
-      const posts = await Post.find(params).sort({ createdAt: -1 }).populate("profile")
+    async (parent, args) => {
+      // const params = username ? { username } : {}
+      const posts = await Post.find().sort({ createdAt: -1 }).populate("profile").populate("comments")
     
       return posts;
     },
@@ -86,7 +86,7 @@ const resolvers = {
         const newPost = await Post.create({
           postText,
           image,
-          username: context.profile.username,
+          profile: context.profile._id,
         });
 
         await Profile.findOneAndUpdate(
