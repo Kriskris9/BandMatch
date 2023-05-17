@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../utils/mutations";
 import "./styles/createPost.css";
+import Auth from "../utils/auth";
+import { Link } from "react-router-dom";
 
 function CreatePost() {
   const [captionText, setCaptionText] = useState("");
@@ -46,17 +48,19 @@ function CreatePost() {
 
   return (
     <div className="new-post-form">
-      <form className="create-post-form" onSubmit={handleFormSubmit}>
-        <div className="create-post-inputs">
-          <div className="create-post-caption">
-            <input
-              id="caption"
-              name="captionText"
-              placeholder="Enter your caption"
-              value={captionText}
-              onChange={handleChange}
-            />
-            {/* <label htmlFor="image">Image:</label>
+      {Auth.loggedIn() ? (
+        <>
+          <form className="create-post-form" onSubmit={handleFormSubmit}>
+            <div className="create-post-inputs">
+              <div className="create-post-caption">
+                <input
+                  id="caption"
+                  name="captionText"
+                  placeholder="Enter your caption"
+                  value={captionText}
+                  onChange={handleChange}
+                />
+                {/* <label htmlFor="image">Image:</label>
             <input
               id="image"
               name="captionIMG"
@@ -64,13 +68,20 @@ function CreatePost() {
               value={captionIMG}
               onChange={handleIMG}
             /> */}
-          </div>
-          <div className="buttons">
-            <button type="submit">Post</button>
-            <button type="submit">Media</button>
-          </div>
-        </div>
-      </form>
+              </div>
+              <div className="buttons">
+                <button type="submit">Post</button>
+                <button type="submit">Media</button>
+              </div>
+            </div>
+          </form>
+        </>
+      ) : (
+        <p>
+          You need to be logged in to create a post. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
     </div>
   );
 }
