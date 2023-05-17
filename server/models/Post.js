@@ -7,10 +7,6 @@ const postSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  displayName: {
-    type: String,
-    default: ''
-  },
   postText: {
     type: String,
   },
@@ -31,15 +27,11 @@ const postSchema = new Schema({
         maxlength: 280,
       },
       commentAuthor: {
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
+        type: String,
+        required: true,
       },
     },
   ],
-  profile: {
-    type: Schema.Types.ObjectId,
-    ref: "Profile",
-  },
 });
 
 const Post = model("Post", postSchema);

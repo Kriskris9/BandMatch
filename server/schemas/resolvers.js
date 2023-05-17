@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile, Post, profileCard } = require("../models");
+const { Profile, Post, profileCard, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -9,15 +9,26 @@ const resolvers = {
     // },
     
     profile: async (parent, { username }) => {
-      Profile.findOne({ username }).populate("posts").populate("profileCard");
+      Profile.findOne({ username }).populate("posts").populate("profileCard".populate("comments"));
     },
-    post: async (parent, { username }) => {
-      return Post.findOne({ username }).populate("comments");
+    // post: async (parent, { username }) => {
+    //   return Post.findOne({ username }).populate("comments");
+    // },
+    posts: 
+    async (parent, { username }) => {
+      const params = username ? { username } : {}
+      return Post.find(params).sort({ createdAt: -1 })
     },
-    posts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Post.find(params).sort({ createdAt: -1 });
-    },
+    // Comment: {
+    //   commentAuthor: async (parent) => {
+    //     try {
+    //       const profile = await Profile.findById(parent.commentAuthor);
+    //       return profile;
+    //     } catch (error) {
+    //       throw new Error('Failed to fetch profile for the comment author');
+    //     }
+    //   },
+    // },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
       const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")
@@ -46,18 +57,6 @@ const resolvers = {
       return "Protected query result";
     },
   },
-  Post: {
-    displayName: async (parent, args, context) => {
-      try {
-        const profile = await Profile.findOne({ username: parent.username });
-        return profile ? profile.displayName : null;
-      } catch (error) {
-        console.error('Error fetching displayName:', error);
-        throw error;
-      }
-    },
-  },
-
   Mutation: {
     addProfile: async (parent, { username, email, password }) => {
       const profile = await Profile.create({

@@ -29,17 +29,24 @@ db.once('open', async () => {
     for(var i=0; i < userCardSeeds.length; i++ ){
       const {_id} = await profileCard.create({...userCardSeeds[i], profile: profileId[Math.floor(Math.random()*profileId.length)]});
     }
-    await Post.create(postSeeds);
-
-    await Comment.create(commentSeeds);
 
     
+    for (let i = 0; i < postSeeds.length; i++) {
+      const profileId = profileIds[Math.floor(Math.random() * profileIds.length)];
+      const postData = { ...postSeeds[i], profile: profileId };
+      await Post.create(postData);
+    }
 
+    for (let i = 0; i < commentSeeds.length; i++) {
+      const profileId = profileIds[Math.floor(Math.random() * profileIds.length)];
+      const commentData = { ...commentSeeds[i], profile: profileId };
+      await Comment.create(commentData);
+    }
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
 
-  console.log('all done!');
+  console.log('All done!');
   process.exit(0);
 });
