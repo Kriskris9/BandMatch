@@ -93,6 +93,7 @@ const resolvers = {
         });
 
         await Profile.findOneAndUpdate(
+          
           { _id: context.profile._id },
           { $addToSet: { post: newPost._id } }
         );
