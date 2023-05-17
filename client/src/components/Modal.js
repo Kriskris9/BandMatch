@@ -11,7 +11,6 @@ const Modal = ({ toggle }) => {
     image: "",
     text: "",
     location: "",
-    username: "",
   });
 
   const [addProfileCard, { loading, error }] = useMutation(ADD_PROFILE_CARD);
@@ -24,14 +23,13 @@ const Modal = ({ toggle }) => {
   };
 
   const handleSubmit = (e) => {
+    console.log({ variables: formData });
     e.preventDefault();
     addProfileCard({ variables: formData })
       .then((result) => {
-        // Handle successful submission
         console.log(result.data.addProfileCard);
       })
       .catch((error) => {
-        // Handle error
         console.log(error);
       });
   };
@@ -43,7 +41,6 @@ const Modal = ({ toggle }) => {
             &times;
           </span>
           <form onSubmit={handleSubmit}>
-            {/* Your form fields here */}
             <input
               type="text"
               name="experience"
@@ -86,13 +83,6 @@ const Modal = ({ toggle }) => {
               onChange={handleChange}
               placeholder="Location"
             />
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder="Username"
-            />
 
             <button type="submit" disabled={loading}>
               {loading ? "Submitting..." : "Submit"}
@@ -100,7 +90,6 @@ const Modal = ({ toggle }) => {
 
             {error && <p>Error: {error.message}</p>}
           </form>
-          <button className="create-btn">Create Post</button>
         </div>
       </div>
     </div>
