@@ -10,7 +10,6 @@ query profile {
     posts
     profileCard
     bio
-    profilePic
   }
 }
 `;
