@@ -19,7 +19,7 @@ const resolvers = {
     },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
-      const profileCards = await profileCard.find(params).sort({ createdAt: -1 });
+      const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")
     
       return profileCards;
 

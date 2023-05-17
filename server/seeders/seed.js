@@ -21,13 +21,17 @@ db.once('open', async () => {
 
     await Comment.deleteMany({});
 
-    await Profile.create(userSeeds);
-
+    const profileId = [];
+    for(var i=0; i < userSeeds.length; i++ ){
+      const {_id} = await Profile.create(userSeeds[i]);
+      profileId.push(_id);
+    }
+    for(var i=0; i < userCardSeeds.length; i++ ){
+      const {_id} = await profileCard.create({...userCardSeeds[i], profile: profileId[Math.floor(Math.random()*profileId.length)]});
+    }
     await Post.create(postSeeds);
-    
-    await profileCard.create(userCardSeeds);
 
-    await Comment.create(commentSeeds)
+    await Comment.create(commentSeeds);
 
     
 
