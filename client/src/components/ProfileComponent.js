@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import "./styles/profile.css";
 import img from "./testIMG/apple-music-note.jpg";
 import Modal from "./Modal";
+import Mod from "./bioModel"
 
 const UserCards = ({ profile, bio }) => {
   const [showModal, setShowModal] = useState(false);
+  const [showBio,setShowBio] = useState(false);
+  
+
+  const updateProfile=()=>{
+    setShowBio(!showBio);
+  }
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -26,6 +33,9 @@ const UserCards = ({ profile, bio }) => {
         </div>
 
         <div>
+          <button className="create-btn" onClick={updateProfile}>
+            Update profile
+          </button>
           <button className="create-btn" onClick={redirectPage}>
             Create Post
           </button>
@@ -49,6 +59,7 @@ const UserCards = ({ profile, bio }) => {
           </div>
         </div>
       {showModal && <Modal toggle={toggleModal} />}
+      {showBio && <Mod doggle={updateProfile} />}
     </main>
   );
 };
