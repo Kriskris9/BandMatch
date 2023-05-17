@@ -42,20 +42,17 @@ db.once("open", async () => {
 
       const postIdToUpdate =
         postIds[Math.floor(Math.random() * postIds.length)];
-      const commentText = ""; // Set the default value for commentText
-      if (commentText) {
-        // Add a condition to check if commentText is non-empty
-        const comment = new Comment({ commentText });
-        const comments = await Post.findOneAndUpdate(
+
+        const comments2 = await Post.findOneAndUpdate(
           { _id: postIdToUpdate },
-          {
-            $addToSet: {
-              comments: comment,
-            },
+        {
+          $set:{
+            profile: profileId[Math.floor(Math.random() * profileId.length)],
+          }
+            
           }
         );
       }
-    }
   } catch (err) {
     console.error(err);
     process.exit(1);
