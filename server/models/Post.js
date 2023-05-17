@@ -7,6 +7,10 @@ const postSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  displayName: {
+    type: String,
+    default: ''
+  },
   postText: {
     type: String,
   },
@@ -32,6 +36,10 @@ const postSchema = new Schema({
       },
     },
   ],
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile",
+  },
 });
 
 const Post = model("Post", postSchema);

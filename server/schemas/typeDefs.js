@@ -15,14 +15,17 @@ const typeDefs = gql`
   type Post {
     _id: ID
     createdAt: String!
+    displayName: String
     postText: String!
     image: String!
     comments: [String!]
+    profileId: Profile
   }
 
   type profileCard {
     _id: ID
     profile: Profile
+    displayName: String
     createdAt: String!
     experience: String
     instrument: String
@@ -35,6 +38,7 @@ const typeDefs = gql`
   type Comment {
     _id: ID!
     commentText: String!
+    createdAt: String!
     username: Profile!
   }
 

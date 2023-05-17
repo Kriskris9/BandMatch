@@ -17,18 +17,18 @@ export const GET_PROFILE = gql`
 `;
 
 export const GET_POSTS = gql`
-  query posts {
+  query Post {
     posts {
       _id
       createdAt
+      displayName
       postText
       image
       comments {
         _id
         commentText
         username {
-          _id
-          username
+          profile
         }
       }
     }
@@ -56,9 +56,11 @@ export const GET_POST = gql`
     post(username: $username) {
       _id
       createdAt
+      displayName
       postText
       image
       comments
+      profile
     }
   }
 `;

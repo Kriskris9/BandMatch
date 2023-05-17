@@ -7,6 +7,7 @@ const resolvers = {
     // profiles: async () => {
     //     return Profile.find().populate('posts');
     // },
+    
     profile: async (parent, { username }) => {
       Profile.findOne({ username }).populate("posts").populate("profileCard");
     },
@@ -43,6 +44,17 @@ const resolvers = {
       console.log(user);
       // Return the result
       return "Protected query result";
+    },
+  },
+  Post: {
+    displayName: async (parent, args, context) => {
+      try {
+        const profile = await Profile.findOne({ username: parent.username });
+        return profile ? profile.displayName : null;
+      } catch (error) {
+        console.error('Error fetching displayName:', error);
+        throw error;
+      }
     },
   },
 
