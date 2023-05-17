@@ -11,9 +11,9 @@ const resolvers = {
       return Profile.findOne({ username:context.profile.username }).populate("posts").populate("profileCard");
       
     },
-    // post: async (parent, { username }) => {
-    //   return Post.findOne({ username }).populate("comments");
-    // },
+    post: async (parent, { username }) => {
+      return Post.findOne({ _id:postId });
+    },
     posts: 
     async (parent, { username }) => {
       const params = username ? { username } : {}

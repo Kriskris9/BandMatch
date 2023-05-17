@@ -53,8 +53,10 @@ export const ADD_PROFILE_CARD = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($postText: String!, $image: String!) {
-    addPost(postText: $postText, image: $image) {
+  mutation addPost {
+    addPost {
+      _id
+      createdAt
       postText
       image
     }
@@ -99,9 +101,8 @@ export const REMOVE_POST = gql`
       comments {
         _id
         commentText
-        username {
-          _id
-          username
+        commentAuthor{
+          profile
         }
       }
     }
@@ -113,9 +114,9 @@ export const REMOVE_COMMENT = gql`
     removeComment(postId: $postId, commentId: $commentId) {
       _id
       commentText
-      username {
+      commentAuthor {
         _id
-        username
+        profile
       }
     }
   }

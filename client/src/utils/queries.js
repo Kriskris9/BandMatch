@@ -15,20 +15,47 @@ query profile {
 }
 `;
 
-export const GET_POSTS = gql`
-query Post {
-    posts {
+export const GET_POST = gql`
+  query Post {
+    post {
       _id
       createdAt
       postText
       image
-      comments {
-        _id
-        createdAt
-        commentText
+      comments
     }
   }
+`;
+
+export const GET_POSTS = gql`
+query Query {
+  posts {
+    _id
+    createdAt
+    postText
+    image
+    comments {
+      _id
+      createdAt
+      commentAuthor {
+        username
+      }
+    }
   }
+}
+`;
+
+export const GET_COMMENTS = gql`
+query Query {
+  comments{
+    _id
+    commentText
+    createdAt
+    commentAuthor {
+      username
+    }
+  }
+}
 `;
 
 export const QUERY_GET_PROFILE_CARDS = gql`
@@ -48,20 +75,7 @@ query ProfileCards {
 }
 `;
 
-export const GET_POST = gql`
-  query Post {
-    post {
-      _id
-      createdAt
-      postText
-      image
-      comments
-      profile {
-        username
-      }
-    }
-  }
-`;
+
 
 export const GET_ME = gql`
   query me {

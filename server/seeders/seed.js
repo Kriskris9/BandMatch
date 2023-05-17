@@ -4,7 +4,7 @@ const userSeeds = require('./userSeeds.json');
 const { profileCard } = require('../models');
 const userCardSeeds = require('./userCardSeeds.json');
 const { Comment } = require('../models')
-const commentSeeds = require('./commentSeeds.json')
+// const commentSeeds = require('./commentSeeds.json')
 const { Post } = require('../models')
 const postSeeds = require('./postSeeds.json')
 
@@ -35,25 +35,23 @@ db.once('open', async () => {
 
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
-    const {_id} = await Post.create(postSeeds[i]);
-    postIds.push(_id)
-    }
-
-    for (let i = 0; i < commentSeeds.length; i++) {
-      const { _id } = await Comment.create(commentSeeds[i]);
-      const comments = await Post.findOneAndUpdate(
-        { _id: postIds[Math.floor(Math.random()*postIds.length)] },
-        {
-          $addToSet: {
-            comments: _id,
-          },
-        }
-      );
-    }
-
+      const { _id } = await Post.create(postSeeds[i]);
+      postIds.push(_id);
     
-
-    
+      const postIdToUpdate = postIds[Math.floor(Math.random() * postIds.length)];
+      const commentText = ''; // Set the default value for commentText
+      if (commentText) { // Add a condition to check if commentText is non-empty
+        const comment = new Comment({ commentText });
+        const comments = await Post.findOneAndUpdate(
+          { _id: postIdToUpdate },
+          {
+            $addToSet: {
+              comments: comment,
+            },
+          }
+        );
+      }
+    }
 
   } catch (err) {
     console.error(err);
