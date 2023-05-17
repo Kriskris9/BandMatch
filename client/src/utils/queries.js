@@ -28,19 +28,13 @@ export const GET_POST = gql`
 `;
 
 export const GET_POSTS = gql`
-query Query {
+query Posts {
   posts {
     _id
-    createdAt
     postText
-    image
-    comments {
-      _id
-      createdAt
-      commentText
-      profile {
-        username
-      }
+    createdAt
+    profile {
+      username
     }
   }
 }

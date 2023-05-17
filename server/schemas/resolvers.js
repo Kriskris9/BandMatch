@@ -93,6 +93,7 @@ const resolvers = {
         });
 
         await Profile.findOneAndUpdate(
+          
           { _id: context.profile._id },
           { $addToSet: { post: newPost._id } }
         );
@@ -120,7 +121,7 @@ const resolvers = {
 
         await Profile.findOneAndUpdate(
           { _id: context.profile._id },
-          { $addToSet: { post: card._id } }
+          { $set: { profileCard: card._id } }
         );
         const populatedCard = await card.populate("profile");
         return populatedCard;
