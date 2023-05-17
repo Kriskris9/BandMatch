@@ -32,6 +32,7 @@ query Posts {
   posts {
     _id
     postText
+    image
     createdAt
     profile {
       username

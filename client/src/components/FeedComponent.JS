@@ -32,7 +32,7 @@ function FeedComponent() {
               <div className="username">Username: {post?.profile?.username ? post.profile.username : ""}</div>
             </div>
             <div className="image-post-container">
-              <img className="post-img" src={img}></img>
+              <img className="post-img" src={post?.image || post.image }></img>
               <div className="info-container">
                 <span className="caption">Post: {post.postText}</span>
               </div>
