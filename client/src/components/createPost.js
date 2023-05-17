@@ -58,6 +58,7 @@ function CreatePost() {
                   value={captionText}
                   onChange={handleCaptionChange}
                 />
+
               </div>
             </div>
             <div className="buttons">
