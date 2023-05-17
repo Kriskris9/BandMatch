@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/profile.css";
 import img from "./testIMG/apple-music-note.jpg";
+import Modal from "./Modal";
 
 
  
 const UserCards = ({profile,bio}) => {
   
   
+=======
+const UserCards = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const redirectPage = () => {
+    window.location.assign("/feed");
+  };
+
   return (
      <main className="profile">
         
@@ -19,6 +32,7 @@ const UserCards = ({profile,bio}) => {
             </div>
           </div>
         </div>
+
         <div className="profile-post-containers">
           <div className="feed-post">
             <div className="profile-feed-post-container">
@@ -27,11 +41,35 @@ const UserCards = ({profile,bio}) => {
                 <div className="profile-info-container">
                   <span className="profile-caption">Caption goes here</span>
                 </div>
+
+        <div>
+          <button className="create-btn" onClick={redirectPage}>
+            Create Post
+          </button>
+          <button className="create-btn" onClick={toggleModal}>
+            Create Card
+          </button>
+        </div>
+      </div>
+      <div className="profile-post-containers">
+        <div className="profile-feed-post">
+          <div className="profile-feed-post-container">
+            <div className="profile-image-post-container">
+              <img className="profile-post-img" src={img}></img>
+              <div className="profile-info-container">
+                <span className="profile-caption">Caption goes here</span>
+
               </div>
             </div>
           </div>
         </div>
+
      </main>
+
+      </div>
+      {showModal && <Modal toggle={toggleModal} />}
+    </main>
+
   );
 };
 
