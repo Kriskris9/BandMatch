@@ -23,6 +23,7 @@ export const GET_POST = gql`
       postText
       image
       comments
+      profile
     }
   }
 `;
@@ -37,7 +38,8 @@ query Query {
     comments {
       _id
       createdAt
-      commentAuthor {
+      commentText
+      profile {
         username
       }
     }
@@ -51,9 +53,6 @@ query Query {
     _id
     commentText
     createdAt
-    commentAuthor {
-      username
-    }
   }
 }
 `;

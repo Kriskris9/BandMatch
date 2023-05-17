@@ -5,7 +5,7 @@
       "comments": [
         {
           "commentText": "Wow, that looks delicious! What restaurant did you go to?",
-          "commentAuthor": "BrianKernighan" 
+          "commentAuthor": "Lernantino" 
         },
         {
           "commentText": "I've been wanting to try that place. How was the service?",
@@ -23,7 +23,7 @@
         },
         {
           "commentText": "Thanks for the recommendation! I'll add it to my reading list.",
-          "commentAuthor": "Kent Beck" 
+          "commentAuthor": "David Thomas" 
         }
       ]
     }

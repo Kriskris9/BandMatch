@@ -4,7 +4,7 @@ const userSeeds = require('./userSeeds.json');
 const { profileCard } = require('../models');
 const userCardSeeds = require('./userCardSeeds.json');
 const { Comment } = require('../models')
-// const commentSeeds = require('./commentSeeds.json')
+const commentSeeds = require('./commentSeeds.json')
 const { Post } = require('../models')
 const postSeeds = require('./postSeeds.json')
 

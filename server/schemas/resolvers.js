@@ -17,14 +17,15 @@ const resolvers = {
     posts: 
     async (parent, { username }) => {
       const params = username ? { username } : {}
-      return Post.find(params).sort({ createdAt: -1 })
+      const posts = await Post.find(params).sort({ createdAt: -1 }).populate("profile")
+    
+      return posts;
     },
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
       const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")
     
       return profileCards;
-
     },
     me: async (parent, args, context) => {
       if (context.profile) {

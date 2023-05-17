@@ -68,9 +68,6 @@ export const ADD_COMMENT = gql`
     addComment(postId: $postId, commentText: $commentText) {
       _id
       commentText
-      username {
-        _id
-        username
       }
     }
   }
@@ -114,10 +111,6 @@ export const REMOVE_COMMENT = gql`
     removeComment(postId: $postId, commentId: $commentId) {
       _id
       commentText
-      commentAuthor {
-        _id
-        profile
-      }
     }
   }
 `;

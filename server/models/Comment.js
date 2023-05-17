@@ -15,10 +15,6 @@ const commentSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  commentAuthor: {
-    type: Schema.Types.ObjectId,
-    ref: "Profile",
-  },
 });
 
 const Comment = model("Comment", commentSchema);

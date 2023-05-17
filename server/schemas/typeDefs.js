@@ -18,6 +18,7 @@ const typeDefs = gql`
     postText: String!
     image: String
     comments: [Comment!]!
+    profile: Profile
   }
 
   type profileCard {
@@ -46,7 +47,7 @@ const typeDefs = gql`
 
   type Query {
     profile: Profile
-    post: Post
+    post(postId: ID!): Post!
     posts: [Post!]!
     comment: Comment
     profileCards: [profileCard]
