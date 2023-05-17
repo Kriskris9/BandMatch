@@ -2,21 +2,20 @@ import React from "react";
 import "./styles/profile.css";
 import img from "./testIMG/apple-music-note.jpg";
 
- 
 
  
-const UserCards = ({user,bio}) => {
+const UserCards = ({profile,bio}) => {
+  
+  
   return (
      <main className="profile">
-        {user && 
-        user.map((user)=>(
-        <div key ={user.id}>
+        
         <div className="profile-header">
           <div className="profile-info">
             <img className="profile-pic" src={img}></img>
             <div className="profile-text">
-              <span className="profile-username"> username: {user.username}</span>
-              <span className="profile-bio">bio: {user.bio}</span>
+              <span className="profile-username"> username: {profile}</span>
+              <span className="profile-bio">bio: {bio}</span>
             </div>
           </div>
         </div>
@@ -32,8 +31,6 @@ const UserCards = ({user,bio}) => {
             </div>
           </div>
         </div>
-        </div>
-        ))}
      </main>
   );
 };

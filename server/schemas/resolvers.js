@@ -7,8 +7,9 @@ const resolvers = {
     // profiles: async () => {
     //     return Profile.find().populate('posts');
     // },
-    profile: async (parent, { username }) => {
-      Profile.findOne({ username }).populate("posts").populate("profileCard");
+    profile: async (parent,args,context) => {
+      return Profile.findOne({ username:context.profile.username }).populate("posts").populate("profileCard");
+      
     },
     post: async (parent, { username }) => {
       return Post.findOne({ username }).populate("comments");
