@@ -1,3 +1,4 @@
+
 [
     {
 
@@ -5,7 +6,7 @@
       "instrument": "Guitar",
       "location": "Los Angeles",
       "genres": "Rock, Blues, Jazz",
-      "profilePic": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fnews%2Fnewsbeat-59550776&psig=AOvVaw1OkhVEgbE6h_SPUwYN_tRm&ust=1684282458650000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPikk5_H-P4CFQAAAAAdAAAAABAE",
+      "image": "https://www.billboard.com/wp-content/uploads/media/02-drake-photo-gallery-2018-billboard-1548.jpg?w=875&h=583&crop=1",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam semper nibh, vitae varius velit dictum ut."
     },
     {
@@ -14,7 +15,7 @@
       "instrument": "Drums",
       "location": "San Francisco",
       "genres": "Metal, Punk, Alternative",
-      "profilePic": "https://example.com/image2.jpg",
+      "image": "https://static.boredpanda.com/blog/wp-content/uploads/2018/09/Colorized-Photographs-done-by-me-last-year-Spent-about-3000-hours-for-about-300-images-5b8d27fe0e17f__880.jpg",
       "text": "Fusce laoreet eget dui vel bibendum. Aenean condimentum quis nulla id egestas. Vestibulum dapibus augue ac lorem lacinia euismod."
     },
     {
@@ -23,7 +24,7 @@
       "instrument": "Bass",
       "location": "New York",
       "genres": "Funk, Reggae, Hip Hop",
-      "profilePic": "https://example.com/image3.jpg",
+      "image": "https://images2.minutemediacdn.com/image/upload/c_fill,w_2160,ar_16:9,f_auto,q_auto,g_auto/shape%2Fcover%2Fsport%2F62455-shout-factory1-869b74b647b88045caac956956bd1ff8.jpg",
       "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas nec consequat nisi, sed tempus est."
     },
     {
@@ -32,7 +33,7 @@
         "instrument": "Guitar",
         "location": "Santa Monica",
         "genres": "Rock, Blues, Jazz",
-        "profilePic": "https://example.com/image4.jpg",
+        "image": "https://imgix.ranker.com/user_node_img/73/1450902/original/lindsay-lohan-recording-artists-and-groups-photo-u117?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=650",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam semper nibh, vitae varius velit dictum ut."
       }
   ]

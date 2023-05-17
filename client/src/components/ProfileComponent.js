@@ -4,12 +4,10 @@ import img from "./testIMG/apple-music-note.jpg";
 import Modal from "./Modal";
 
 
+  
  
-const UserCards = ({profile,bio}) => {
-  
-  
-=======
-const UserCards = () => {
+
+const UserCards = ({profile, bio}) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {

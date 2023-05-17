@@ -41,6 +41,7 @@ query ProfileCards {
     experience
     genres
     image
+    text
     instrument
     location
     profile {
