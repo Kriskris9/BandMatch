@@ -60,14 +60,6 @@ function CreatePost() {
                   value={captionText}
                   onChange={handleChange}
                 />
-                {/* <label htmlFor="image">Image:</label>
-            <input
-              id="image"
-              name="captionIMG"
-              placeholder="Enter image URL"
-              value={captionIMG}
-              onChange={handleIMG}
-            /> */}
               </div>
               <div className="buttons">
                 <button type="submit">Post</button>

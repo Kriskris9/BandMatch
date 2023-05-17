@@ -13,26 +13,25 @@ const profileCardSchema = new Schema({
   },
   location: {
     type: String,
-
-    },
+  },
   experience: {
     type: String,
-    required: true,
   },
+  // username: {
+  //   type: String,
+  // },
   instrument: {
     type: String,
-    required: true,
   },
   genres: {
     type: String,
-    required: true,
   },
   image: {
     type: String,
   },
   text: {
     type: String,
-  }
+  },
 });
 
 const profileCard = model("profileCard", profileCardSchema);

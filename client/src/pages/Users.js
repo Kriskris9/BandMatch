@@ -6,6 +6,7 @@ import { QUERY_GET_PROFILE_CARDS } from "../utils/queries";
 const Users = () => {
   const { loading, data } = useQuery(QUERY_GET_PROFILE_CARDS);
   const cards = data?.profileCards || [];
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -14,11 +15,9 @@ const Users = () => {
   return (
     <div className="container">
       <div className="row">
-          <div className="col-4">
-            <UserCards 
-              usercards={cards}
-            />
-          </div>
+        <div className="col-4">
+          <UserCards usercards={cards} />
+        </div>
       </div>
     </div>
   );

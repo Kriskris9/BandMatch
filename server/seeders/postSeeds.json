@@ -5,25 +5,25 @@
       "comments": [
         {
           "commentText": "Wow, that looks delicious! What restaurant did you go to?",
-          "commentAuthor": "60f9cc53e3c7640015d1f2d0" 
+          "commentAuthor": "Lernantino" 
         },
         {
           "commentText": "I've been wanting to try that place. How was the service?",
-          "commentAuthor": "60f9cc53e3c7640015d1f2d1" 
+          "commentAuthor": "MaxKanat-Alexander" 
         }
       ]
     },
     {
       "postText": "Just finished reading a great book - highly recommend it!",
-      "image": null,
+      "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
       "comments": [
         {
           "commentText": "What book was it? I'm always looking for something new to read.",
-          "commentAuthor": "60f9cc53e3c7640015d1f2d2"
+          "commentAuthor": "WhyTheLuckyStiff"
         },
         {
           "commentText": "Thanks for the recommendation! I'll add it to my reading list.",
-          "commentAuthor": "60f9cc53e3c7640015d1f2d3" 
+          "commentAuthor": "David Thomas" 
         }
       ]
     }

@@ -5,6 +5,7 @@ const commentSchema = new Schema({
   commentText: {
     type: String,
     required: true,
+    default: ' ',
     minlength: 1,
     maxlength: 280,
     trim: true,
@@ -13,10 +14,6 @@ const commentSchema = new Schema({
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
-  },
-  username: {
-    type: Schema.Types.ObjectId,
-    ref: "Profile",
   },
 });
 
