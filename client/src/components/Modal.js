@@ -84,7 +84,7 @@ const Modal = ({ toggle }) => {
               placeholder="Location"
             />
 
-            <button type="submit" disabled={loading}>
+            <button className="modal-btn" type="submit" disabled={loading}>
               {loading ? "Submitting..." : "Submit"}
             </button>
 

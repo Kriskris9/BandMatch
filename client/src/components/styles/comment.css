@@ -39,7 +39,7 @@ textarea {
   border-radius: 4px;
 }
 
-button[type="submit"] {
+.comment-submit {
   background-color: #2979c4;
   color: #fff;
   border: none;
@@ -49,6 +49,6 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.comment-submit:hover {
   background-color: #2979c4;
 }

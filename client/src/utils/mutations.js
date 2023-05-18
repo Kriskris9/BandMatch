@@ -112,7 +112,7 @@ export const REMOVE_POST = gql`
       comments {
         _id
         commentText
-        commentAuthor{
+        commentAuthor {
           profile
         }
       }

@@ -1,17 +1,16 @@
 import { gql } from "@apollo/client";
 
 export const GET_PROFILE = gql`
-query profile {
-  profile{
-    username
-    _id
-    email
-    password
-    posts
-    profileCard
-    bio
+  query profile {
+    profile {
+      username
+      _id
+      email
+      password
+      profileCard
+      bio
+    }
   }
-}
 `;
 
 
@@ -28,6 +27,17 @@ query Posts {
   }
 }
 `;
+
+export const GET_COMMENTS = gql`
+  query Query {
+    comments {
+      _id
+      commentText
+      createdAt
+    }
+  }
+`;
+
 
 export const SINGLE_POST = gql`
   query post($postId: ID!) {
@@ -52,20 +62,20 @@ export const SINGLE_POST = gql`
 
 
 export const QUERY_GET_PROFILE_CARDS = gql`
-query ProfileCards {
-  profileCards {
-    createdAt
-    experience
-    genres
-    image
-    text
-    instrument
-    location
-    profile {
-      username
+  query ProfileCards {
+    profileCards {
+      createdAt
+      experience
+      genres
+      image
+      text
+      instrument
+      location
+      profile {
+        username
+      }
     }
   }
-}
 `;
 
 

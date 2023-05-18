@@ -9,7 +9,7 @@ import UploadFile from "./UploadFile";
 function CreatePost() {
   const [captionText, setCaptionText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [uploadedImg, setUploadedImg] = useState(true)
+  const [uploadedImg, setUploadedImg] = useState(true);
 
   const [addPost, { error }] = useMutation(ADD_POST);
 
@@ -25,12 +25,11 @@ function CreatePost() {
       });
 
       alert("Post created");
-      console.log(data)
+      console.log(data);
 
       setCaptionText("");
       setImageUrl("");
       setUploadedImg(false);
-
     } catch (err) {
       console.error(err);
     }
@@ -58,12 +57,16 @@ function CreatePost() {
                   value={captionText}
                   onChange={handleCaptionChange}
                 />
-
               </div>
             </div>
             <div className="buttons">
-              <UploadFile handleImageUpload={handleImageUpload} uploadedImg={uploadedImg} />
-              <button type="submit">Post</button>
+              <UploadFile
+                handleImageUpload={handleImageUpload}
+                uploadedImg={uploadedImg}
+              />
+              <button className="upload-btn" type="submit">
+                Post
+              </button>
             </div>
           </form>
         </>

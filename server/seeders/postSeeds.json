@@ -1,56 +1,31 @@
 [
   {
-    "postText": "Hello, world",
-    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
-    "comments": [
-      {
-        "commentText": "Me",
-        "commentAuthor": "Brian Kernighan" 
-      }
-    ]
+    "postText": "Just had a jam session with some talented musicians. The music was on fire! 🔥🎵 Looking to join a band and make some magic together. Hit me up if you're interested! 🤘🎸",
+    "image": "https://example.com/image1.jpg"
   },
   {
-    "postText": "Just had the most amazing meal at a new restaurant in town!",
-    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
-    "comments": [
-      {
-        "commentText": "Wow, that looks delicious! What restaurant did you go to?",
-        "commentAuthor": "Lernantino" 
-      },
-      {
-        "commentText": "I've been wanting to try that place. How was the service?",
-        "commentAuthor": "Lernantino" 
-      }
-    ]
+    "postText": "Attended an awesome concert last night! The energy, the vibes, and the music were out of this world. Feeling inspired to start my own band. Seeking passionate musicians who want to create something special. Let's rock this world together! 🎤🎶",
+    "image": "https://example.com/image2.jpg"
   },
   {
-    "postText": "Looking for a guitarist ASAP",
-    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
-    "comments": [
-      {
-        "commentText": "Check out my profile",
-        "commentAuthor": "Donald Knuth" 
-      }
-    ]
+    "postText": "Just finished recording a new track in the studio. Can't wait to share it with you all! Stay tuned for some ear candy. 🎧🎶",
+    "image": "https://example.com/image3.jpg"
   },
   {
-    "postText": "Hey friends just checkout out the talent.",
-    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
-    "comments": [
-      {
-        "commentText": "me too",
-        "commentAuthor": "MaxKanat-Alexander" 
-      }
-    ]
+    "postText": "Spent the entire weekend attending music workshops and honing my skills. Feeling motivated and ready to take my music journey to the next level. 🎹✨",
+    "image": "https://example.com/image4.jpg"
   },
   {
-    "postText": "I'm a guitarist looking for a band",
-    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
-    "comments": [
-      {
-        "commentText": "Like",
-        "commentAuthor": "David Thomas" 
-      }
-    ]
+    "postText": "Joined a band recently and had our first rehearsal. It was pure magic! Excited for the musical journey ahead. 🤟🎵",
+    "image": "https://example.com/image5.jpg"
+  },
+  {
+    "postText": "Attended an open mic night and witnessed some incredible talents. Feeling inspired and motivated to practice harder. Music truly brings people together! 🎤❤️",
+    "image": "https://example.com/image6.jpg"
+  },
+  {
+    "postText": "Started learning a new instrument this week. Challenging, but the progress is addictive. Can't wait to play some melodies on it soon! 🎶😊",
+    "image": "https://example.com/image7.jpg"
   }
 ]
+

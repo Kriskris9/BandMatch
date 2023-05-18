@@ -8,7 +8,6 @@ import CommentForm from "./CommentForm";
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
-
 function FeedComponent() {
   const { loading, data } = useQuery(GET_POSTS);
   const posts = data?.posts || [];
@@ -35,11 +34,11 @@ function FeedComponent() {
               <div className="info-container">
                 <span className="caption">Post: {post.postText}</span>
               </div>
+              <Comment comments={post.comments} />
             </div>
           </div>
         </div>)
       })}
-     
       <CommentForm />
     </main>
   );

@@ -1,19 +1,18 @@
-import React,{useEffect} from "react";
-import { Navigate,useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import ProfileComponent from "../components/ProfileComponent";
 
-import { GET_PROFILE} from "../utils/queries";
+import { GET_PROFILE } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 import SinglePost from "../components/SinglePost";
 
 const Profile = () => {
-  const {loading,data} = useQuery(GET_PROFILE)
+  const { loading, data } = useQuery(GET_PROFILE);
   const profile = data?.profile || [];
-useEffect(()=>{
-  console.log(profile)
-})
-  
+  useEffect(() => {
+    console.log(profile);
+  });
 
   if (loading) {
     return <div>Loading...</div>;
@@ -21,16 +20,11 @@ useEffect(()=>{
   return (
     <div className="container">
       <div className="row">
-          <div className="col-4">
-          <ProfileComponent 
-            profile={profile.username}
-            bio={profile.bio}
-          />
-          </div>
-          <SinglePost />
+        <div className="col-4">
+          <ProfileComponent profile={profile.username} bio={profile.bio} />
+        </div>
       </div>
     </div>
-  
   );
 };
 
