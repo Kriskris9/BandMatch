@@ -45,6 +45,10 @@ export const GET_POSTS = gql`
       postText
       createdAt
       image
+      profile {
+        username
+        profilePic
+      }
       comments {
         commentText
         profile {
