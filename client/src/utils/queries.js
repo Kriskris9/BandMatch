@@ -29,23 +29,22 @@ query Posts {
 `;
 
 export const SINGLE_POST = gql`
-  query post($postId: ID!) {
-    post(postId: $postId) {
-    id
+query post($postId: ID!) {
+  post(postId: $postId) {
+  createdAt
+  image
+  postText
+  comments {
+    _id
+    commentAuthor
+    commentText
     createdAt
-    image
-    postText
-    comments {
-      _id
-      commentAuthor
-      commentText
-      createdAt
-    profile {
-      username
-    }
+  profile {
+    username
   }
-    }
+}
   }
+}
 `;
 
 

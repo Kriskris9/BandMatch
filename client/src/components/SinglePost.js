@@ -3,19 +3,20 @@ import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
 import CommentFeed from "./Comments";
 import CommentForm from "./CommentForm"
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { SINGLE_POST } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 
 
-const SinglePost = ({ postId }) => {
+const SinglePost = () => {
+    const { postId }= useParams();
     const { loading, data } = useQuery(SINGLE_POST, {
         variables: { postId },
     });
     const post = data?.post || [];
     useEffect(() => {
-        console.log(post)
+        console.log(post, postId)
     });
 
     if (loading) {

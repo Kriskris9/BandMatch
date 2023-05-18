@@ -65,7 +65,7 @@ function App() {
                 <Route path="/users" element={<Users />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/feed" element={<Feed />} />
-                <Route path="/post" element={<SinglePost />}/>
+                <Route path="/post/:postId" element={<SinglePost />}/>
                 {/* THIS TEO ARE DEV ONLY TEST ROUTES-- FOR COMMENTS */}
                 <Route path="/comments" element={<CommentFeed />}/>
                 <Route path="/commentform" element={<CommentForm />}/>

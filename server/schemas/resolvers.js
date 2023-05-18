@@ -12,7 +12,7 @@ const resolvers = {
         .populate("profileCard")
         .populate("posts");
     },
-    post: async (parent, { username }) => {
+    post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
     posts: async (parent, args) => {
@@ -186,6 +186,11 @@ const resolvers = {
     },
     removeComment: async (parent, { postId, commentId }, context) => {
       if (context.profile) {
+        const{_id} = await Comment.create({
+          commentText,
+          commentAuthor: context.profile.username
+        })
+
         return Post.findOneAndUpdate(
           { _id: postId },
           {
