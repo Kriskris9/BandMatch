@@ -66,12 +66,13 @@ const resolvers = {
       return { token, profile };
     },
     updateProfile: async (parent, { bio, profilePic }, context) => {
+      console.log(context.profile)
       const updatedProfile = await Profile.findOneAndUpdate(
         { _id: context.profile._id },
         { bio, profilePic },
         { new: true }
       );
-      return updatedUser;
+      return updatedProfile;
     },
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });

@@ -14,13 +14,12 @@ export const ADD_PROFILE = gql`
 `;
 
 export const UPDATE_PROFILE = gql`
-  mutation updateProfile($bio: String, $profilePic: String) {
-    updateProfile(bio: $bio, profilePic: $profilePic) {
-      _id
-      bio
-      profilePic
-    }
+mutation updateProfile($bio: String, $profilePic: String) {
+  updateProfile(bio: $bio, profilePic: $profilePic) {
+    _id
+    bio
   }
+}
 `;
 
 export const LOGIN = gql`
