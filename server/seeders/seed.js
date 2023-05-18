@@ -31,9 +31,9 @@ db.once("open", async () => {
       });
     }
 
-    await Post.create(postSeeds);
+    // await Post.create(postSeeds);
 
-    await Comment.create(commentSeeds);
+    // await Comment.create(commentSeeds);
 
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {

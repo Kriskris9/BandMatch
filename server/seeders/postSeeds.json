@@ -1,5 +1,15 @@
 [
   {
+    "postText": "Hello, world",
+    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
+    "comments": [
+      {
+        "commentText": "Me",
+        "commentAuthor": "Brian Kernighan" 
+      }
+    ]
+  },
+  {
     "postText": "Just had the most amazing meal at a new restaurant in town!",
     "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
     "comments": [
@@ -9,7 +19,37 @@
       },
       {
         "commentText": "I've been wanting to try that place. How was the service?",
+        "commentAuthor": "Lernantino" 
+      }
+    ]
+  },
+  {
+    "postText": "Looking for a guitarist ASAP",
+    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
+    "comments": [
+      {
+        "commentText": "Check out my profile",
+        "commentAuthor": "Donald Knuth" 
+      }
+    ]
+  },
+  {
+    "postText": "Hey friends just checkout out the talent.",
+    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
+    "comments": [
+      {
+        "commentText": "me too",
         "commentAuthor": "MaxKanat-Alexander" 
+      }
+    ]
+  },
+  {
+    "postText": "I'm a guitarist looking for a band",
+    "image": "https://images.squarespace-cdn.com/content/v1/54e7a1a6e4b08db9da801ded/7f2dae36-5650-4b84-b184-684f46fe68aa/98.jpg?format=750w",
+    "comments": [
+      {
+        "commentText": "Like",
+        "commentAuthor": "David Thomas" 
       }
     ]
   }
