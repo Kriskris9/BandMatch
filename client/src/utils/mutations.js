@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+
 export const ADD_PROFILE = gql`
   mutation addProfile($username: String!, $email: String!, $password: String!) {
     addProfile(username: $username, email: $email, password: $password) {
@@ -79,13 +80,10 @@ export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
       _id
-      comments {
-        commentText
-      }
+      commentText
     }
   }
 `;
-
 
 export const REMOVE_PROFILE_CARD = gql`
   mutation removeProfileCard($profileCardId: ID!) {
