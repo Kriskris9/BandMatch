@@ -22,6 +22,7 @@ function UploadFile({ handleImageUpload, uploadedImg }) {
       .then((res) => {
         setImage(res.data.secure_url);
         handleImageUpload(res.data.secure_url);
+        alert("File Uploaded");
       })
       .catch((err) => console.log(err));
   };
@@ -40,7 +41,6 @@ function UploadFile({ handleImageUpload, uploadedImg }) {
           Media
         </label>
       </div>
-      {uploadedImg && image && <img src={image} alt="Uploaded" />}
     </div>
   );
 }
