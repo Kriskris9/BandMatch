@@ -13,7 +13,8 @@ db.once("open", async () => {
 
     await profileCard.deleteMany({});
 
-    // await Comment.deleteMany({});
+ 
+    await Comment.deleteMany({});
 
     const profileId = [];
     for (var i = 0; i < userSeeds.length; i++) {
@@ -36,20 +37,6 @@ db.once("open", async () => {
       });
       postIds.push(_id);
 
-      //THIS WILL MAKE THE POST ASSIGN TO THE CORRESPONDING PROFILE BASED ON INDEX LENGTH- NOT PICKING A RANDOMIZED ID
-      const profileIndex = i % profileId.length;
-      const profileToAssign = profileId[profileIndex];
-
-      // FOR REFERENCE THIS IS THE OLD FOR LOOP w/ MATH.RANDOM
-      // const postIdToUpdate =
-      // postIds[Math.floor(Math.random() * postIds.length)];
-
-      const postProfile = await Post.findOneAndUpdate(
-        { _id: _id },
-        {
-          $set: { profile: profileToAssign }
-        }
-      );
       const numComments = Math.floor(Math.random() * 5);
       for (let j = 0; j < numComments; j++) {
         const randomProfileIndex = Math.floor(Math.random() * profileId.length);
