@@ -1,6 +1,5 @@
 # BandMatch
 
-<<<<<<< HEAD
 ## Description
 
 Welcome to our web application! Whether you're a lead singer, guitarist, or just someone who loves music and wants to join a band, this is the perfect place for you. We understand the struggle of finding other musicians with similar interests and skill levels, so we've created a platform that allows you to search for band members based on location, instrument, genre, and more.
@@ -10,6 +9,8 @@ With our user-friendly interface and advanced search options, you'll be able to 
 ## Usage
 
 To use this application, simply visit the deployed link below. You will be taken to the homepage where you can either sign up or log in. Once you've created an account, you will be able to search for other users based on location, instrument, genre, and more. You can also create a profile for yourself and add your own information to the database.
+
+
 
 
 # License
@@ -33,23 +34,3 @@ Greg DeCarlo: https://github.com/KryptekHD
 ## Deployed Link 
 
 
-=======
-## Table of Contents
-
-## Usage
-
-## Description
-
-## Contributions
-
-## Resources and Acknowledgements
-
-## License
-
-## Tests & Deployment
-[]()
-[]()
-
-## Assets
-![alt description]()
->>>>>>> origin
