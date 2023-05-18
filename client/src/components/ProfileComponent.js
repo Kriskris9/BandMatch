@@ -59,7 +59,6 @@ const UserCards = ({ profile, bio, posts }) => {
           </div>
         </div>
       ))}
-
       {showModal && <Modal toggle={toggleModal} />}
       {showBio && <Mod doggle={updateProfile} />}
     </main>

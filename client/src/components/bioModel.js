@@ -1,38 +1,38 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PROFILE } from "../utils/mutations";
 import "./styles/modal.css";
 
-    const Mod = ({doggle}) =>{
-        const [formData, setFormData]= useState({
-            bio:"",
-            profilePic:""
-        });
+const Mod = ({ doggle }) => {
+  const [formData, setFormData] = useState({
+    bio: "",
+    profilePic: ""
+  });
 
-    const [updateProfile,{loading,error}] = useMutation(UPDATE_PROFILE);
-    
-    const handleChange = (e) =>{
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData)
-        updateProfile({ variables: formData })
-          .then((result) => {
-            console.log(result.data.updateProfile);
-          })
-          .catch((error) => {
-            console.log(error);
-            console.log("here")
-          });
+  const [updateProfile, { loading, error }] = useMutation(UPDATE_PROFILE);
 
-    };
-    return(
-        <div className="modal-overlay">
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData)
+    updateProfile({ variables: formData })
+      .then((result) => {
+        console.log(result.data.updateProfile);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("here")
+      });
+
+  };
+  return (
+    <div className="modal-overlay">
       <div className="modal">
         <div className="modal-content">
           <span className="exit-btn" onClick={doggle}>
@@ -46,7 +46,7 @@ import "./styles/modal.css";
               onChange={handleChange}
               placeholder="Bio"
             />
-             <input
+            <input
               type="text"
               name="profilePic"
               value={formData.profilePic}
@@ -63,7 +63,7 @@ import "./styles/modal.css";
       </div>
     </div>
 
-    );
- };
+  );
+};
 
- export default Mod;
+export default Mod;
