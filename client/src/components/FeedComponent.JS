@@ -33,7 +33,7 @@ function FeedComponent() {
                   </div>
                 </div>
                 <div className="image-post-container">
-                  <img className="post-img" src={img}></img>
+                <img className="post-img" src={ post?.image || post.image }/>
                   <div className="info-container">
                     <span className="caption">{post.postText}</span>
                   </div>

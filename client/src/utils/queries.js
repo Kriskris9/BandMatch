@@ -32,6 +32,7 @@ export const GET_POSTS = gql`
       _id
       postText
       createdAt
+      image
       profile {
         username
       }
