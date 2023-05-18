@@ -19,7 +19,11 @@ const Profile = () => {
     <div className="container">
       <div className="row">
         <div className="col-4">
-          <ProfileComponent profile={profile.username} bio={profile.bio} />
+          <ProfileComponent
+            profile={profile.username}
+            bio={profile.bio}
+            posts={profile.posts}
+          />
         </div>
       </div>
     </div>
