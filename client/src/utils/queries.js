@@ -14,18 +14,6 @@ query profile {
 }
 `;
 
-// export const GET_POST = gql`
-//   query Post {
-//     post {
-//       _id
-//       createdAt
-//       postText
-//       image
-//       comments
-//       profile
-//     }
-//   }
-// `;
 
 export const GET_POSTS = gql`
 query Posts {
@@ -42,11 +30,12 @@ query Posts {
 `;
 
 export const GET_COMMENTS = gql`
-query Query {
-  comments{
+query posts {
+  comments {
     _id
     commentText
     createdAt
+    commentAuthor
   }
 }
 `;
@@ -67,7 +56,6 @@ query ProfileCards {
   }
 }
 `;
-
 
 
 export const GET_ME = gql`

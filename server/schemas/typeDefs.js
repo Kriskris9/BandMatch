@@ -35,9 +35,9 @@ const typeDefs = gql`
 
   type Comment {
     _id: ID!
-    createdAt: String!
+    createdAt: String
     commentText: String
-    commentAuthor: Profile
+    commentAuthor: String
   }
 
   type Auth {
@@ -73,13 +73,13 @@ const typeDefs = gql`
 
     addPost(postText: String!, image: String!): Post
 
-    addComment(postId: ID!, commentText: String!): Comment
+    addComment(postId: ID!, commentText: String!): Post
 
     removeProfileCard(profileCardId: ID!): profileCard
 
     removePost(postId: ID!): Post
 
-    removeComment(postId: ID!, commentId: ID!): Comment
+    removeComment(postId: ID!, commentId: ID!): Post
   }
 `;
 

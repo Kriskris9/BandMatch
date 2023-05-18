@@ -78,11 +78,14 @@ export const ADD_POST = gql`
 export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
-      _id
-      commentText
+          _id
+          comments {
+            commentText
+          }
+        }
       }
-    }
 `;
+
 
 export const REMOVE_PROFILE_CARD = gql`
   mutation removeProfileCard($profileCardId: ID!) {

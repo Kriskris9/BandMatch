@@ -3,8 +3,8 @@ const { Profile } = require("../models");
 const userSeeds = require("./userSeeds.json");
 const { profileCard } = require("../models");
 const userCardSeeds = require("./userCardSeeds.json");
-const { Comment } = require("../models");
-const commentSeeds = require("./commentSeeds.json");
+// const { Comment } = require("../models");
+// const commentSeeds = require("./commentSeeds.json");
 const { Post } = require("../models");
 const postSeeds = require("./postSeeds.json");
 
@@ -16,7 +16,7 @@ db.once("open", async () => {
 
     await profileCard.deleteMany({});
 
-    await Comment.deleteMany({});
+    // await Comment.deleteMany({});
 
     const profileId = [];
     for (var i = 0; i < userSeeds.length; i++) {
@@ -31,6 +31,7 @@ db.once("open", async () => {
       });
     }
 
+    // Profile.create(commentSeeds);
 
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
