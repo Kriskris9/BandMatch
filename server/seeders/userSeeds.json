@@ -1,9 +1,11 @@
-{
+
+[{
   "username": "Brian Kernighan",
   "email": "bkernighan@techfriends.dev",
   "password": "password01",
   "posts": "64651c52c91309d68d3b9f28"
 },
+
 {
   "username": "Kent Beck",
   "email": "kbeck@techfriends.dev",
@@ -26,6 +28,6 @@
   "email": "lernantino@techfriends.dev",
   "password": "password10"
 }
-
+]
 
   

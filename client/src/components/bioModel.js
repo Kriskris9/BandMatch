@@ -27,6 +27,7 @@ import "./styles/modal.css";
           })
           .catch((error) => {
             console.log(error);
+            console.log("here")
           });
 
     };

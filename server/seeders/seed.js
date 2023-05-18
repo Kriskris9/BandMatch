@@ -28,11 +28,6 @@ db.once("open", async () => {
       });
     }
 
-    await Profile.updateOne(userSeeds);
-
-    await Post.create(postSeeds);
-
-    await Comment.create(commentSeeds);
 
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
