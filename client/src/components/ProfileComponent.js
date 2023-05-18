@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import "./styles/profile.css";
 import img from "./testIMG/apple-music-note.jpg";
 import Modal from "./Modal";
-import Mod from "./bioModel"
+import Mod from "./bioModel";
 
 const UserCards = ({ profile, bio, posts }) => {
   const [showModal, setShowModal] = useState(false);
-  const [showBio,setShowBio] = useState(false);
-  
+  const [showBio, setShowBio] = useState(false);
 
-  const updateProfile=()=>{
+  const updateProfile = () => {
     setShowBio(!showBio);
-  }
+  };
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -29,7 +28,7 @@ const UserCards = ({ profile, bio, posts }) => {
           <img className="profile-pic" src={img}></img>
           <div className="profile-text">
             <span className="profile-username"> {profile}</span>
-            <span className="profile-bio">bio: {bio}</span>
+            <span className="profile-bio">{bio}</span>
           </div>
         </div>
 

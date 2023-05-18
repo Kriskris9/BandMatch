@@ -1,38 +1,42 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PROFILE } from "../utils/mutations";
 import "./styles/modal.css";
+import UploadFile from "./UploadFile";
 
-    const Mod = ({doggle}) =>{
-        const [formData, setFormData]= useState({
-            bio:"",
-            profilePic:""
-        });
+const Mod = ({ doggle }) => {
+  const [formData, setFormData] = useState({
+    bio: "",
+  });
+  const [imageUrl, setImageUrl] = useState("");
+  const [uploadedImg, setUploadedImg] = useState(true);
 
-    const [updateProfile,{loading,error}] = useMutation(UPDATE_PROFILE);
-    
-    const handleChange = (e) =>{
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData)
-        updateProfile({ variables: formData })
-          .then((result) => {
-            console.log(result.data.updateProfile);
-          })
-          .catch((error) => {
-            console.log(error);
-            console.log("here")
-          });
+  const [updateProfile, { loading, error }] = useMutation(UPDATE_PROFILE);
 
-    };
-    return(
-        <div className="modal-overlay">
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    updateProfile({ variables: formData })
+      .then((result) => {
+        console.log(result.data.updateProfile);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("here");
+      });
+  };
+
+  const handleImageUpload = (imageUrl) => {
+    setImageUrl(imageUrl);
+  };
+  return (
+    <div className="modal-overlay">
       <div className="modal">
         <div className="modal-content">
           <span className="exit-btn" onClick={doggle}>
@@ -46,24 +50,29 @@ import "./styles/modal.css";
               onChange={handleChange}
               placeholder="Bio"
             />
-             <input
+            {/* <input
               type="text"
               name="profilePic"
               value={formData.profilePic}
               onChange={handleChange}
               placeholder="profile Pic"
-            />
-            <button type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "Submit"}
-            </button>
+            /> */}
+            <div className="modalFlex">
+              <UploadFile
+                handleImageUpload={handleImageUpload}
+                uploadedImg={uploadedImg}
+              />
+              <button className="modal-btn" type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Submit"}
+              </button>
+            </div>
 
             {error && <p>Error: {error.message}</p>}
           </form>
         </div>
       </div>
     </div>
+  );
+};
 
-    );
- };
-
- export default Mod;
+export default Mod;
