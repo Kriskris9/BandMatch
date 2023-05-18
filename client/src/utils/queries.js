@@ -16,27 +16,6 @@ export const GET_PROFILE = gql`
   }
 `;
 
-
-export const GET_POSTS = gql`
-query Posts {
-  posts {
-    _id
-    postText
-    image
-    createdAt
-    profile {
-      username
-      comments {
-        commentText
-        profile {
-          username
-        }
-      }
-    }
-  }
-}
-`;
-
 export const SINGLE_POST = gql`
 query post($postId: ID!) {
   post(postId: $postId) {
@@ -57,6 +36,25 @@ query post($postId: ID!) {
 `;
 
 
+export const GET_POSTS = gql`
+  query Posts {
+    posts {
+      _id
+      postText
+      createdAt
+      profile {
+        username
+      }
+      comments {
+        commentText
+        profile {
+          username
+        }
+      }
+    }
+  }
+`;
+
 export const GET_COMMENTS = gql`
   query Query {
     comments {
@@ -66,11 +64,6 @@ export const GET_COMMENTS = gql`
     }
   }
 `;
-
-
-
-
-
 
 export const QUERY_GET_PROFILE_CARDS = gql`
   query ProfileCards {
@@ -88,7 +81,6 @@ export const QUERY_GET_PROFILE_CARDS = gql`
     }
   }
 `;
-
 
 export const GET_ME = gql`
   query me {
