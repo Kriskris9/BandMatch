@@ -30,12 +30,14 @@ query Posts {
 `;
 
 export const GET_COMMENTS = gql`
-query posts {
-  comments {
-    _id
-    commentText
-    createdAt
-    commentAuthor
+query {
+  posts {
+    comments {
+      _id
+      commentAuthor
+      commentText
+      createdAt
+    }
   }
 }
 `;
