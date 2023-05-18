@@ -29,12 +29,12 @@ function FeedComponent() {
           <div className="feed-post-container">
             <div className="profile-pic-container">
               <img className="profile-pic-img" src={img}></img>
-              <div className="username">Username:{post?.profile?.username ? post.profile.username : ""}</div>
+              <div className="username">Username: {post?.profile?.username ? post.profile.username : ""}</div>
             </div>
             <div className="image-post-container">
-              <img className="post-img" src={img}></img>
+              <img className="post-img" src={post?.image || post.image }></img>
               <div className="info-container">
-                <span className="caption">[SAMPLE POST TEXT] {post.postText}</span>
+                <span className="caption">Post: {post.postText}</span>
               </div>
             </div>
             </div>
