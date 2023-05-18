@@ -31,28 +31,27 @@ db.once("open", async () => {
       });
     }
 
-    // await Post.create(postSeeds);
-
-    // await Comment.create(commentSeeds);
 
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
       const { _id } = await Post.create(postSeeds[i]);
       postIds.push(_id);
 
-      const postIdToUpdate =
-        postIds[Math.floor(Math.random() * postIds.length)];
+      //THIS WILL MAKE THE POST ASSIGN TO THE CORRESPONDING PROFILE BASED ON INDEX LENGTH- NOT PICKING A RANDOMIZED ID
+      const profileIndex = i % profileId.length;
+      const profileToAssign = profileId[profileIndex];
 
-        const comments2 = await Post.findOneAndUpdate(
-          { _id: postIdToUpdate },
+      // FOR REFERENCE THIS IS THE OLD FOR LOOP w/ MATH.RANDOM
+      // const postIdToUpdate =
+      // postIds[Math.floor(Math.random() * postIds.length)];
+
+      const postProfile = await Post.findOneAndUpdate(
+        { _id: _id },
         {
-          $set:{
-            profile: profileId[Math.floor(Math.random() * profileId.length)],
-          }
-            
-          }
-        );
-      }
+          $set: { profile: profileToAssign }
+        }
+      );
+    }
   } catch (err) {
     console.error(err);
     process.exit(1);
