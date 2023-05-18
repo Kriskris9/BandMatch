@@ -146,6 +146,21 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    // removeProfileCard: async (parent, { profileId }, context) => {
+    //   if (context.profile) {
+    //     const delUserCard = await Profile.findOneAndDelete({
+    //       _id: profileCardId,
+    //     });
+
+    //     await Profile.findOneAndUpdate(
+    //       { _id: context.profile._id },
+    //       { $pull: { profile: delUserCard._id } }
+    //     );
+
+    //     return delUserCard;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     removePost: async (parent, { postId }, context) => {
       if (context.profile) {
         const delPost = await Post.findOneAndDelete({
