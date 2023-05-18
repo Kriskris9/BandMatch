@@ -1,14 +1,17 @@
 import React from "react";
 import "./styles/comment.css";
 
-const Comment = () => {
+const Comment = ({ comments }) => {
   return (
-    <div class="comment-section">
+    <div className="comment-section">
       <h2>Comments</h2>
-      <div class="comment">
-        <div class="comment-author">John Doe</div>
-        <div class="comment-content">This is a great article!</div>
-      </div>
+      {comments &&
+        comments.map((comment) => (
+          <div className="comment">
+            <div className="comment-author">{comment.profile.username}</div>
+            <div className="comment-content">{comment.commentText}</div>
+          </div>
+        ))}
 
       <form className="comment-form">
         <input

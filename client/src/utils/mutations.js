@@ -80,8 +80,8 @@ export const ADD_COMMENT = gql`
     addComment(postId: $postId, commentText: $commentText) {
       _id
       commentText
-      }
     }
+  }
 `;
 
 export const REMOVE_PROFILE_CARD = gql`
@@ -109,7 +109,7 @@ export const REMOVE_POST = gql`
       comments {
         _id
         commentText
-        commentAuthor{
+        commentAuthor {
           profile
         }
       }

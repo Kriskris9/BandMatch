@@ -1,12 +1,9 @@
 const db = require("../config/connection");
-const { Profile } = require("../models");
+const { Profile, Post, Comment, profileCard } = require("../models");
 const userSeeds = require("./userSeeds.json");
-const { profileCard } = require("../models");
 const userCardSeeds = require("./userCardSeeds.json");
-const { Comment } = require("../models");
-const commentSeeds = require("./commentSeeds.json");
-const { Post } = require("../models");
 const postSeeds = require("./postSeeds.json");
+const commentSeeds = require("./commentSeeds.json");
 
 db.once("open", async () => {
   try {
@@ -31,33 +28,40 @@ db.once("open", async () => {
       });
     }
 
-    await Post.create(postSeeds);
-
-    await Comment.create(commentSeeds);
-
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
-      const { _id } = await Post.create(postSeeds[i]);
+      const { _id } = await Post.create({
+        ...postSeeds[i],
+        profile: profileId[Math.floor(Math.random() * profileId.length)],
+      });
       postIds.push(_id);
 
-      const postIdToUpdate =
-        postIds[Math.floor(Math.random() * postIds.length)];
+      const numComments = Math.floor(Math.random() * 5);
+      for (let j = 0; j < numComments; j++) {
+        const randomProfileIndex = Math.floor(Math.random() * profileId.length);
+        const randomProfile = await Profile.findById(
+          profileId[randomProfileIndex]
+        );
 
-        const comments2 = await Post.findOneAndUpdate(
-          { _id: postIdToUpdate },
-        {
-          $set:{
-            profile: profileId[Math.floor(Math.random() * profileId.length)],
-          }
-            
-          }
+        const { _id: commentId } = await Comment.create({
+          commentText: commentSeeds[j % commentSeeds.length].commentText,
+          profile: randomProfile._id,
+          post: _id,
+        });
+
+        // Update the comments array in the corresponding post
+        await Post.findByIdAndUpdate(
+          _id,
+          { $push: { comments: commentId } },
+          { new: true }
         );
       }
+    }
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
 
-  console.log("all done!");
+  console.log("All done!");
   process.exit(0);
 });
