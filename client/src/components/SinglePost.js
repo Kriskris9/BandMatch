@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
-import CommentFeed from "./Comments";
+import CommentFeed from "./CommentFeed";
 import CommentForm from "./CommentForm"
 import { useParams } from 'react-router-dom';
 import { SINGLE_POST } from "../utils/queries";
@@ -10,7 +10,7 @@ import { useQuery } from "@apollo/client";
 
 
 const SinglePost = () => {
-    const { postId }= useParams();
+    const { postId } = useParams();
     const { loading, data } = useQuery(SINGLE_POST, {
         variables: { postId },
     });

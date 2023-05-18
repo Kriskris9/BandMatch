@@ -134,23 +134,21 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { postId, commentText }, context) => {
-      if (context.profile) {
-        return Post.findOneAndUpdate(
-          { _id: postId },
-          {
-            $addToSet: {
-              comments: {
-                commentText,
-                commentAuthor: context.profile.username,
-              },
-            },
+    const comment = await Comment.create({
+      commentText,
+      profile: context.profile._id,
+    });
+        await Post.findOneAndUpdate(
+        { _id: postId },
+          {$addToSet: {
+              comments: {comment,_id}
+          },
           },
           {
             new: true,
             runValidators: true,
           }
         );
-      }
       throw new AuthenticationError("You need to be logged in!");
     },
     // removeProfileCard: async (parent, { profileId }, context) => {
