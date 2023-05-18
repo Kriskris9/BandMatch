@@ -50,7 +50,7 @@ const UserCards = ({ profile, bio, posts }) => {
             <div className="profile-feed-post">
               <div className="profile-feed-post-container">
                 <div className="profile-image-post-container">
-                  <img className="profile-post-img" src={img}></img>
+                  <img className="profile-post-img" src={post.image}></img>
                   <div className="profile-info-container">
                     <span className="profile-caption">{post.postText}</span>
                   </div>
