@@ -13,6 +13,7 @@ function FeedComponent() {
   const posts = data?.posts || [];
   useEffect(() => {
     console.log(posts);
+    
   });
   if (loading) {
     return <div>Loading...</div>;
@@ -27,7 +28,7 @@ function FeedComponent() {
             <div className="feed-post">
               <div className="feed-post-container">
                 <div className="profile-pic-container">
-                  <img className="profile-pic-img" src={post.profile.profilePic }></img>
+                  {/* <img className="profile-pic-img" src={post.profile.profilePic }/> */}
                   <div className="username">
                     {post?.profile?.username ? post.profile.username : ""}
                   </div>
