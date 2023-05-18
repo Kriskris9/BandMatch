@@ -17,7 +17,7 @@ const typeDefs = gql`
     createdAt: String!
     postText: String!
     image: String
-    comments: [Comment!]!
+    comments: [Comment]
     profile: Profile
   }
 
@@ -37,7 +37,7 @@ const typeDefs = gql`
     _id: ID!
     createdAt: String!
     commentText: String
-    commentAuthor: Profile
+    profile: Profile
   }
 
   type Auth {
@@ -48,7 +48,7 @@ const typeDefs = gql`
   type Query {
     profile: Profile
     post(postId: ID!): Post!
-    posts: [Post!]!
+    posts: [Post]
     comment: Comment
     profileCards: [profileCard]
     me: Profile

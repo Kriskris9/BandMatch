@@ -34,7 +34,7 @@ const profileSchema = new Schema({
   },
   profilePic: {
     type: String,
-  }
+  },
 });
 
 profileSchema.pre("save", async function (next) {
