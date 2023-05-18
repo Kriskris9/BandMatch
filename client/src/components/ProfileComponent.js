@@ -45,18 +45,22 @@ const UserCards = ({ profile, bio, posts }) => {
         </div>
       </div>
       <div className="profile-post-containers">
-        {posts.map((post) => (
-          <div className="profile-feed-post">
-            <div className="profile-feed-post-container">
-              <div className="profile-image-post-container">
-                <img className="profile-post-img" src={img}></img>
-                <div className="profile-info-container">
-                  <span className="profile-caption">{post.postText}</span>
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <div className="profile-feed-post">
+              <div className="profile-feed-post-container">
+                <div className="profile-image-post-container">
+                  <img className="profile-post-img" src={img}></img>
+                  <div className="profile-info-container">
+                    <span className="profile-caption">{post.postText}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No posts available.</p>
+        )}
       </div>
 
       {showModal && <Modal toggle={toggleModal} />}

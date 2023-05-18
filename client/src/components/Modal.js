@@ -28,6 +28,8 @@ const Modal = ({ toggle }) => {
     addProfileCard({ variables: formData })
       .then((result) => {
         console.log(result.data.addProfileCard);
+        alert("Profile Card Created!");
+        window.location.assign("/users");
       })
       .catch((error) => {
         console.log(error);

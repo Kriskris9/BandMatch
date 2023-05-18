@@ -50,21 +50,15 @@ const Mod = ({ doggle }) => {
               onChange={handleChange}
               placeholder="Bio"
             />
-            {/* <input
-              type="text"
-              name="profilePic"
-              value={formData.profilePic}
-              onChange={handleChange}
-              placeholder="profile Pic"
-            /> */}
-            <div className="modalFlex">
+
+            <div className="modal-flex">
+              <button className="modal-btn" type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Submit"}
+              </button>
               <UploadFile
                 handleImageUpload={handleImageUpload}
                 uploadedImg={uploadedImg}
               />
-              <button className="modal-btn" type="submit" disabled={loading}>
-                {loading ? "Submitting..." : "Submit"}
-              </button>
             </div>
 
             {error && <p>Error: {error.message}</p>}
