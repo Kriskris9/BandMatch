@@ -27,7 +27,7 @@ function FeedComponent() {
             <div className="feed-post">
               <div className="feed-post-container">
                 <div className="profile-pic-container">
-                  <img className="profile-pic-img" src={img}></img>
+                  <img className="profile-pic-img" src={post.profile.profilePic }></img>
                   <div className="username">
                     {post?.profile?.username ? post.profile.username : ""}
                   </div>
