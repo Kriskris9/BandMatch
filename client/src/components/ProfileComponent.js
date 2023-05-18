@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import "./styles/profile.css";
 import img from "./testIMG/apple-music-note.jpg";
 import Modal from "./Modal";
-import Mod from "./bioModel"
+import Mod from "./bioModel";
 
 const UserCards = ({ profile, bio, posts }) => {
   const [showModal, setShowModal] = useState(false);
-  const [showBio,setShowBio] = useState(false);
-  
+  const [showBio, setShowBio] = useState(false);
 
-  const updateProfile=()=>{
+  const updateProfile = () => {
     setShowBio(!showBio);
-  }
+  };
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -29,7 +28,7 @@ const UserCards = ({ profile, bio, posts }) => {
           <img className="profile-pic" src={img}></img>
           <div className="profile-text">
             <span className="profile-username"> {profile}</span>
-            <span className="profile-bio">bio: {bio}</span>
+            <span className="profile-bio">{bio}</span>
           </div>
         </div>
 
@@ -45,20 +44,25 @@ const UserCards = ({ profile, bio, posts }) => {
           </button>
         </div>
       </div>
-      {posts.map((post) => (
-        <div className="profile-post-containers">
-          <div className="profile-feed-post">
-            <div className="profile-feed-post-container">
-              <div className="profile-image-post-container">
-                <img className="profile-post-img" src={img}></img>
-                <div className="profile-info-container">
-                  <span className="profile-caption">{post._id}</span>
+      <div className="profile-post-containers">
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <div className="profile-feed-post">
+              <div className="profile-feed-post-container">
+                <div className="profile-image-post-container">
+                  <img className="profile-post-img" src={img}></img>
+                  <div className="profile-info-container">
+                    <span className="profile-caption">{post.postText}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      ))}
+          ))
+        ) : (
+          <p>No posts available.</p>
+        )}
+      </div>
+
       {showModal && <Modal toggle={toggleModal} />}
       {showBio && <Mod doggle={updateProfile} />}
     </main>

@@ -27,7 +27,7 @@ function UploadFile({ handleImageUpload, uploadedImg }) {
   };
 
   return (
-    <div className="">
+    <div>
       <div>
         <label htmlFor="file-upload" className="cloud-btn">
           <input

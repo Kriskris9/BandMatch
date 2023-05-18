@@ -28,6 +28,8 @@ const Modal = ({ toggle }) => {
     addProfileCard({ variables: formData })
       .then((result) => {
         console.log(result.data.addProfileCard);
+        alert("Profile Card Created!");
+        window.location.assign("/users");
       })
       .catch((error) => {
         console.log(error);
@@ -42,6 +44,7 @@ const Modal = ({ toggle }) => {
           </span>
           <form onSubmit={handleSubmit}>
             <input
+              className="modalInput"
               type="text"
               name="experience"
               value={formData.experience}
@@ -49,6 +52,7 @@ const Modal = ({ toggle }) => {
               placeholder="Experience"
             />
             <input
+              className="modalInput"
               type="text"
               name="instrument"
               value={formData.instrument}
@@ -56,6 +60,7 @@ const Modal = ({ toggle }) => {
               placeholder="Instrument"
             />
             <input
+              className="modalInput"
               type="text"
               name="genres"
               value={formData.genres}
@@ -63,6 +68,7 @@ const Modal = ({ toggle }) => {
               placeholder="Genres"
             />
             <input
+              className="modalInput"
               type="text"
               name="image"
               value={formData.image}
@@ -70,6 +76,7 @@ const Modal = ({ toggle }) => {
               placeholder="Image URL"
             />
             <input
+              className="modalInput"
               type="text"
               name="text"
               value={formData.text}
@@ -77,6 +84,7 @@ const Modal = ({ toggle }) => {
               placeholder="Text"
             />
             <input
+              className="modalInput"
               type="text"
               name="location"
               value={formData.location}

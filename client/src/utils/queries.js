@@ -7,11 +7,12 @@ export const GET_PROFILE = gql`
       _id
       email
       password
-      profileCard
       bio
       profilePic
       posts {
         _id
+        postText
+        image
       }
     }
   }
