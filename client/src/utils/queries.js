@@ -9,22 +9,32 @@ export const GET_PROFILE = gql`
       password
       profileCard
       bio
+      posts {
+        _id
+      }
     }
   }
 `;
 
-// export const GET_POST = gql`
-//   query Post {
-//     post {
-//       _id
-//       createdAt
-//       postText
-//       image
-//       comments
-//       profile
-//     }
-//   }
-// `;
+export const SINGLE_POST = gql`
+query post($postId: ID!) {
+  post(postId: $postId) {
+  createdAt
+  image
+  postText
+  comments {
+    _id
+    commentAuthor
+    commentText
+    createdAt
+  profile {
+    username
+      }
+    }
+  }
+}
+`;
+
 
 export const GET_POSTS = gql`
   query Posts {
@@ -80,10 +90,12 @@ export const GET_ME = gql`
       username
       email
       password
-      posts
       profileCard
       bio
       profilePic
+      posts {
+        _id
+      }
     }
   }
 `;

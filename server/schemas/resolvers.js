@@ -12,11 +12,10 @@ const resolvers = {
         .populate("profileCard")
         .populate("posts");
     },
-    post: async (parent, { username }) => {
+    post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
     posts: async (parent, args) => {
-      // const params = username ? { username } : {}
       const posts = await Post.find()
         .sort({ createdAt: -1 })
         .populate("profile")
@@ -37,9 +36,8 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.profile) {
-        return Profile.findOne({ _id: context.profile._id })
-          .populate("post")
-          .populate("profileCard");
+        return Profile.findOne({ _id: context.profile._id }).populate("post");
+        // .populate("profileCard");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -67,12 +65,13 @@ const resolvers = {
       return { token, profile };
     },
     updateProfile: async (parent, { bio, profilePic }, context) => {
+      console.log(context.profile)
       const updatedProfile = await Profile.findOneAndUpdate(
         { _id: context.profile._id },
         { bio, profilePic },
         { new: true }
       );
-      return updatedUser;
+      return updatedProfile;
     },
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
@@ -97,11 +96,11 @@ const resolvers = {
           profile: context.profile._id,
         });
 
-        await Profile.findOneAndUpdate(
+        const user = await Profile.findOneAndUpdate(
           { _id: context.profile._id },
-          { $addToSet: { post: newPost._id } }
+          { $addToSet: { posts: newPost._id } }
         );
-
+        console.log(user);
         return newPost;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -134,14 +133,16 @@ const resolvers = {
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.profile) {
-        return Post.findOneAndUpdate(
+        const comment = await Comment.create({
+          commentText,
+          profile: context.profile._id,
+        });
+
+        await Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
-              comments: {
-                commentText,
-                commentAuthor: context.profile.username,
-              },
+              comments: comment._id,
             },
           },
           {
@@ -149,9 +150,25 @@ const resolvers = {
             runValidators: true,
           }
         );
+        return comment;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    // removeProfileCard: async (parent, { profileId }, context) => {
+    //   if (context.profile) {
+    //     const delUserCard = await Profile.findOneAndDelete({
+    //       _id: profileCardId,
+    //     });
+
+    //     await Profile.findOneAndUpdate(
+    //       { _id: context.profile._id },
+    //       { $pull: { profile: delUserCard._id } }
+    //     );
+
+    //     return delUserCard;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     removePost: async (parent, { postId }, context) => {
       if (context.profile) {
         const delPost = await Post.findOneAndDelete({
@@ -170,6 +187,11 @@ const resolvers = {
     },
     removeComment: async (parent, { postId, commentId }, context) => {
       if (context.profile) {
+        const{_id} = await Comment.create({
+          commentText,
+          commentAuthor: context.profile.username
+        })
+
         return Post.findOneAndUpdate(
           { _id: postId },
           {

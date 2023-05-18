@@ -28,28 +28,32 @@ db.once("open", async () => {
       });
     }
 
+
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
       const { _id } = await Post.create({
-        ...postSeeds[i],
-        profile: profileId[Math.floor(Math.random() * profileId.length)],
+        ...postSeeds[i]
       });
       postIds.push(_id);
+    
+      const profileIndex = i % profileId.length;
+      const profileToAssign = profileId[profileIndex];
+    
+      const postProfile = await Post.findOneAndUpdate(
+        { _id: _id },
+        { $set: { profile: profileToAssign } }
+      );
 
-      const numComments = Math.floor(Math.random() * 5);
+      const numComments = Math.floor(Math.random() * 3);
       for (let j = 0; j < numComments; j++) {
         const randomProfileIndex = Math.floor(Math.random() * profileId.length);
-        const randomProfile = await Profile.findById(
-          profileId[randomProfileIndex]
-        );
-
+        const randomProfile = await Profile.findById(profileId[randomProfileIndex]);
+    
         const { _id: commentId } = await Comment.create({
           commentText: commentSeeds[j % commentSeeds.length].commentText,
           profile: randomProfile._id,
-          post: _id,
+          post: _id
         });
-
-        // Update the comments array in the corresponding post
         await Post.findByIdAndUpdate(
           _id,
           { $push: { comments: commentId } },
@@ -57,6 +61,7 @@ db.once("open", async () => {
         );
       }
     }
+
   } catch (err) {
     console.error(err);
     process.exit(1);
