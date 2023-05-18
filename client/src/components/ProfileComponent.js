@@ -20,7 +20,7 @@ const UserCards = ({ profile, bio }) => {
         <div className="profile-info">
           <img className="profile-pic" src={img}></img>
           <div className="profile-text">
-            <span className="profile-username"> username: {profile}</span>
+            <span className="profile-username"> {profile}</span>
             <span className="profile-bio">bio: {bio}</span>
           </div>
         </div>
@@ -33,21 +33,19 @@ const UserCards = ({ profile, bio }) => {
             Create Card
           </button>
         </div>
-
-       
       </div>
       <div className="profile-post-containers">
-          <div className="profile-feed-post">
-            <div className="profile-feed-post-container">
-              <div className="profile-image-post-container">
-                <img className="profile-post-img" src={img}></img>
-                <div className="profile-info-container">
-                  <span className="profile-caption">Caption goes here</span>
-                </div>
+        <div className="profile-feed-post">
+          <div className="profile-feed-post-container">
+            <div className="profile-image-post-container">
+              <img className="profile-post-img" src={img}></img>
+              <div className="profile-info-container">
+                <span className="profile-caption">Caption goes here</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
       {showModal && <Modal toggle={toggleModal} />}
     </main>
   );

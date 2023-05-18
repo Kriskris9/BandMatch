@@ -9,8 +9,8 @@ const resolvers = {
     // },
     profile: async (parent, args, context) => {
       return Profile.findOne({ username: context.profile.username })
-        .populate("posts")
-        .populate("profileCard");
+        .populate("profileCard")
+        .populate("posts");
     },
     post: async (parent, { username }) => {
       return Post.findOne({ _id: postId });
@@ -20,7 +20,8 @@ const resolvers = {
       const posts = await Post.find()
         .sort({ createdAt: -1 })
         .populate("profile")
-        .populate("comments");
+        .populate("comments")
+        .populate({ path: "comments", populate: "profile" });
 
       return posts;
     },

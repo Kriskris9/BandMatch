@@ -2,31 +2,31 @@
     {
       "username": "briankernighan",
       "email": "bkernighan@techfriends.dev",
-      "password": "password01",
+      "password": "password123",
       "posts": "64651c52c91309d68d3b9f28"
     },
     {
       "username": "kent-beck",
       "email": "kbeck@techfriends.dev",
-      "password": "password04",
+      "password": "password123",
       "posts": "64651ce2f3c284313e44b200"
     },
     {
       "username": "davidthomas",
       "email": "dthomas@techfriends.dev",
-      "password": "password08"
+      "password": "password123"
 
     },
     {
       "username": "donald_knuth",
       "email": "dknuth@techfriends.dev",
-      "password": "password09"
+      "password": "password123"
 
     },
     {
       "username": "lernantino",
       "email": "lernantino@techfriends.dev",
-      "password": "password10"
+      "password": "password123"
     }
   ]
   

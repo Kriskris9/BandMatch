@@ -8,19 +8,23 @@ const commentSeeds = require("./commentSeeds.json");
 db.once("open", async () => {
   try {
     await Profile.deleteMany({});
+
     await Post.deleteMany({});
+
+    await profileCard.deleteMany({});
+
     await Comment.deleteMany({});
 
     const profileId = [];
-    for (let i = 0; i < userSeeds.length; i++) {
+    for (var i = 0; i < userSeeds.length; i++) {
       const { _id } = await Profile.create(userSeeds[i]);
       profileId.push(_id);
     }
-
-    for (let i = 0; i < userCardSeeds.length; i++) {
+    for (var i = 0; i < userCardSeeds.length; i++) {
       const { _id } = await profileCard.create({
         ...userCardSeeds[i],
         profile: profileId[Math.floor(Math.random() * profileId.length)],
+        // username: (await Profile.findById(profileId)).username,
       });
     }
 

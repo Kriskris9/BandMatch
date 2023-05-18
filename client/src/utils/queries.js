@@ -7,7 +7,6 @@ export const GET_PROFILE = gql`
       _id
       email
       password
-      posts
       profileCard
       bio
     }
@@ -37,7 +36,10 @@ export const GET_POSTS = gql`
         username
       }
       comments {
-        _id
+        commentText
+        profile {
+          username
+        }
       }
     }
   }

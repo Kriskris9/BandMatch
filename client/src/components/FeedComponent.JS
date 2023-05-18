@@ -39,7 +39,7 @@ function FeedComponent() {
                   </div>
                 </div>
               </div>
-              <Comment />
+              <Comment comments={post.comments} />
             </div>
           );
         })}
