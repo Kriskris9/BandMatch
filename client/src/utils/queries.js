@@ -8,6 +8,7 @@ export const GET_PROFILE = gql`
       email
       password
       bio
+      profilePic
       posts {
         _id
         postText
@@ -43,8 +44,10 @@ export const GET_POSTS = gql`
       _id
       postText
       createdAt
+      image
       profile {
         username
+        profilePic
       }
       comments {
         commentText

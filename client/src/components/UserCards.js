@@ -23,7 +23,7 @@ const Users = () => {
             <div className="image-container">
               <img
                 className="profilecard-img"
-                src={user.image || img}
+                src={ user.image }
                 alt="profile pic"
               />
             </div>

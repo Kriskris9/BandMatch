@@ -9,7 +9,7 @@ const typeDefs = gql`
     posts: [Post]
     profileCard: String
     bio: String
-    image: String
+    profilePic: String
   }
 
   type Post {
