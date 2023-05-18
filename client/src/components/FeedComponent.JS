@@ -3,31 +3,27 @@ import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
 import CreatePost from "./createPost";
 import CommentForm from "./CommentForm";
-import SinglePost from "./SinglePost";
 
 
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 
-
-
 function FeedComponent() {
-
   const { loading, data } = useQuery(GET_POSTS);
-
   const posts = data?.posts || [];
   useEffect(() => {
     console.log(posts)
-  })
+  });
+
   if (loading) {
     return <div>Loading...</div>;
-  }
+  };
 
   return (
-    <main className="feed">
+<main className="feed">
       <CreatePost />
-      {/* {posts && posts.map((post) => {
+      {posts && posts.map((post) => {
         return (<div className="feed-post" >
           <div className="feed-post-container">
             <div className="profile-pic-container">
@@ -42,11 +38,11 @@ function FeedComponent() {
             </div>
           </div>
         </div>)
-      })} */}
-      <SinglePost />
+      })}
+     
       <CommentForm />
     </main>
-  )
+  );
 }
 
 export default FeedComponent;

@@ -30,7 +30,7 @@ query Posts {
 `;
 
 export const SINGLE_POST = gql`
-  query singlePost($postId: ID!) {
+  query post($postId: ID!) {
     post(postId: $postId) {
     id
     createdAt
@@ -41,27 +41,15 @@ export const SINGLE_POST = gql`
       commentAuthor
       commentText
       createdAt
-    }
     profile {
       username
     }
-      }
+  }
     }
   }
 `;
 
-export const GET_COMMENTS = gql`
-query {
-  posts {
-    comments {
-      _id
-      commentAuthor
-      commentText
-      createdAt
-    }
-  }
-}
-`;
+
 
 export const QUERY_GET_PROFILE_CARDS = gql`
 query ProfileCards {

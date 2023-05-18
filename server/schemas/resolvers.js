@@ -13,7 +13,7 @@ const resolvers = {
         .populate("profileCard");
     },
     post: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId }).populate("profile").populate("comments");
+      return Post.findOne({ postId }).populate("profile").populate("comments");
     },
     posts: 
     async (parent, args) => {

@@ -1,6 +1,12 @@
 import React from 'react';
+import { GET_POSTS } from '../utils/queries';
+import { useQuery } from "@apollo/client";
 
-const CommentFeed = ({ comments = [] }) => {
+function CommentFeed() {
+    const { data } = useQuery(GET_POSTS);
+
+    const comments = data?.posts || [];
+
     if (!comments.length) {
         return <h3>No Comments Yet</h3>;
     }

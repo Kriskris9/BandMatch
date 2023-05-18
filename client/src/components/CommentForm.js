@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../utils/mutations";
 import { Link } from "react-router-dom";
-
+import Auth from "../utils/auth";
 
 import "./styles/comment.css";
-import Auth from "../utils/auth";
+
 
 
 function CommentForm({ postId }) {
@@ -32,9 +32,9 @@ function CommentForm({ postId }) {
   };
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
+    setCommentText(value); 
   };
-
 
   return (
 
