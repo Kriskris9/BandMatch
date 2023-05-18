@@ -45,20 +45,20 @@ const UserCards = ({ profile, bio, posts }) => {
           </button>
         </div>
       </div>
-      {posts.map((post) => (
-        <div className="profile-post-containers">
+      <div className="profile-post-containers">
+        {posts.map((post) => (
           <div className="profile-feed-post">
             <div className="profile-feed-post-container">
               <div className="profile-image-post-container">
                 <img className="profile-post-img" src={img}></img>
                 <div className="profile-info-container">
-                  <span className="profile-caption">{post._id}</span>
+                  <span className="profile-caption">{post.postText}</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       {showModal && <Modal toggle={toggleModal} />}
       {showBio && <Mod doggle={updateProfile} />}

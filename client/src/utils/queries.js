@@ -11,6 +11,8 @@ export const GET_PROFILE = gql`
       bio
       posts {
         _id
+        postText
+        image
       }
     }
   }
