@@ -38,7 +38,7 @@ function CommentForm({ postId }) {
 
   return (
 
-    <div class="comment-section">
+    <div className="comment-section">
       <h2>Comments</h2>
       {Auth.loggedIn() ? (
         <form className="comment-form" onSubmit={handleFormSubmit}>
