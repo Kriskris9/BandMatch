@@ -14,18 +14,18 @@ query profile {
 }
 `;
 
-export const GET_POST = gql`
-  query Post {
-    post {
-      _id
-      createdAt
-      postText
-      image
-      comments
-      profile
-    }
-  }
-`;
+// export const GET_POST = gql`
+//   query Post {
+//     post {
+//       _id
+//       createdAt
+//       postText
+//       image
+//       comments
+//       profile
+//     }
+//   }
+// `;
 
 export const GET_POSTS = gql`
 query Posts {
