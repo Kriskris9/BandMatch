@@ -28,6 +28,7 @@ db.once("open", async () => {
       });
     }
 
+
     const postIds = [];
     for (let i = 0; i < postSeeds.length; i++) {
       const { _id } = await Post.create({

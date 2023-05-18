@@ -32,7 +32,7 @@ const Comment = ({ comments, id }) => {
       {comments &&
         comments.map((comment) => (
           <div className="comment" key={comment._id}>
-            <div className="comment-author">{comment.profile.username}</div>
+            <div className="comment-author">{comment.username}</div>
             <div className="comment-content">{comment.commentText}</div>
           </div>
         ))}
