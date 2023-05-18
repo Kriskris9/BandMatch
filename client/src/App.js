@@ -20,7 +20,6 @@ import SinglePost from "./components/SinglePost";
 //COMMENT DEVELOPMENT TEST COMPONENTS FOR ROUTES--
 import CommentFeed from "./components/CommentFeed";
 
-
 const styles = {
   app: {
     backgroundColor: "#FAF9F6",
@@ -68,11 +67,9 @@ function App() {
                 <Route path="/post/:postId" element={<SinglePost />} />
                 {/* THIS TEO ARE DEV ONLY TEST ROUTES-- FOR COMMENTS */}
                 <Route path="/comments" element={<CommentFeed />} />
-
               </>
             ) : (
               <>
-                <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/feed" element={<Feed />} />

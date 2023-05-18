@@ -42,6 +42,7 @@ function CreatePost() {
 
   const handleImageUpload = (imageUrl) => {
     setImageUrl(imageUrl);
+    alert("File Uploaded");
   };
 
   return (
