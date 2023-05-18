@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { Navigate, useParams } from "react-router-dom";
+// import { Navigate, useParams } from "react-router-dom";
 import ProfileComponent from "../components/ProfileComponent";
 
 import { GET_PROFILE } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+
+// import SinglePost from "../components/SinglePost";
 
 const Profile = () => {
   const { loading, data } = useQuery(GET_PROFILE);

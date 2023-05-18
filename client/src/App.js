@@ -16,6 +16,10 @@ import Users from "../src/pages/Users";
 import Feed from "../src/pages/Feed";
 import Profile from "../src/pages/Profile";
 import Auth from "../src/utils/auth";
+import SinglePost from "./components/SinglePost";
+//COMMENT DEVELOPMENT TEST COMPONENTS FOR ROUTES--
+import CommentFeed from "./components/CommentFeed";
+
 
 const styles = {
   app: {
@@ -57,9 +61,14 @@ function App() {
           <Routes>
             {Auth.loggedIn() ? (
               <>
+                {/* REMEMBER TO ADD A 404 ROUTE!! */}
                 <Route path="/users" element={<Users />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/feed" element={<Feed />} />
+                <Route path="/post/:postId" element={<SinglePost />} />
+                {/* THIS TEO ARE DEV ONLY TEST ROUTES-- FOR COMMENTS */}
+                <Route path="/comments" element={<CommentFeed />} />
+
               </>
             ) : (
               <>

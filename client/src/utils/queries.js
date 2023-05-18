@@ -17,18 +17,25 @@ export const GET_PROFILE = gql`
   }
 `;
 
-// export const GET_POST = gql`
-//   query Post {
-//     post {
-//       _id
-//       createdAt
-//       postText
-//       image
-//       comments
-//       profile
-//     }
-//   }
-// `;
+export const SINGLE_POST = gql`
+query post($postId: ID!) {
+  post(postId: $postId) {
+  createdAt
+  image
+  postText
+  comments {
+    _id
+    commentAuthor
+    commentText
+    createdAt
+  profile {
+    username
+      }
+    }
+  }
+}
+`;
+
 
 export const GET_POSTS = gql`
   query Posts {

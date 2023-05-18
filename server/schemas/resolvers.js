@@ -12,11 +12,10 @@ const resolvers = {
         .populate("profileCard")
         .populate("posts");
     },
-    post: async (parent, { username }) => {
+    post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
     posts: async (parent, args) => {
-      // const params = username ? { username } : {}
       const posts = await Post.find()
         .sort({ createdAt: -1 })
         .populate("profile")
@@ -155,6 +154,21 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    // removeProfileCard: async (parent, { profileId }, context) => {
+    //   if (context.profile) {
+    //     const delUserCard = await Profile.findOneAndDelete({
+    //       _id: profileCardId,
+    //     });
+
+    //     await Profile.findOneAndUpdate(
+    //       { _id: context.profile._id },
+    //       { $pull: { profile: delUserCard._id } }
+    //     );
+
+    //     return delUserCard;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     removePost: async (parent, { postId }, context) => {
       if (context.profile) {
         const delPost = await Post.findOneAndDelete({
@@ -173,6 +187,11 @@ const resolvers = {
     },
     removeComment: async (parent, { postId, commentId }, context) => {
       if (context.profile) {
+        const{_id} = await Comment.create({
+          commentText,
+          commentAuthor: context.profile.username
+        })
+
         return Post.findOneAndUpdate(
           { _id: postId },
           {
