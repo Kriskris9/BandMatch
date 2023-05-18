@@ -36,7 +36,7 @@ db.once("open", async () => {
       });
       postIds.push(_id);
 
-      const numComments = Math.floor(Math.random() * 5);
+      const numComments = Math.floor(Math.random() * 3);
       for (let j = 0; j < numComments; j++) {
         const randomProfileIndex = Math.floor(Math.random() * profileId.length);
         const randomProfile = await Profile.findById(
@@ -48,8 +48,6 @@ db.once("open", async () => {
           profile: randomProfile._id,
           post: _id,
         });
-
-        // Update the comments array in the corresponding post
         await Post.findByIdAndUpdate(
           _id,
           { $push: { comments: commentId } },
