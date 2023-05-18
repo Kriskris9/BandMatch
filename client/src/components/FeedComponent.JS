@@ -7,6 +7,7 @@ import CommentForm from "./CommentForm";
 
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import CommentFeed from "./Comments";
 
 function FeedComponent() {
   const { loading, data } = useQuery(GET_POSTS);
@@ -34,7 +35,7 @@ function FeedComponent() {
               <div className="info-container">
                 <span className="caption">Post: {post.postText}</span>
               </div>
-              <Comment comments={post.comments} />
+              <CommentFeed comments={post.comments} />
             </div>
           </div>
         </div>)

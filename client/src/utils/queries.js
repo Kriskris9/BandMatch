@@ -28,17 +28,6 @@ query Posts {
 }
 `;
 
-export const GET_COMMENTS = gql`
-  query Query {
-    comments {
-      _id
-      commentText
-      createdAt
-    }
-  }
-`;
-
-
 export const SINGLE_POST = gql`
   query post($postId: ID!) {
     post(postId: $postId) {
@@ -58,6 +47,20 @@ export const SINGLE_POST = gql`
     }
   }
 `;
+
+
+export const GET_COMMENTS = gql`
+  query Query {
+    comments {
+      _id
+      commentText
+      createdAt
+    }
+  }
+`;
+
+
+
 
 
 
