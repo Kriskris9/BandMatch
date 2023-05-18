@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PROFILE } from "../utils/mutations";
 import "./styles/modal.css";
+import UploadFile from "./UploadFile";
 
 const Mod = ({ doggle }) => {
   const [formData, setFormData] = useState({
     bio: "",
-    profilePic: ""
   });
+  const [imageUrl, setImageUrl] = useState("");
+  const [uploadedImg, setUploadedImg] = useState(true);
 
   const [updateProfile, { loading, error }] = useMutation(UPDATE_PROFILE);
 
@@ -16,20 +18,22 @@ const Mod = ({ doggle }) => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
     updateProfile({ variables: formData })
       .then((result) => {
         console.log(result.data.updateProfile);
       })
       .catch((error) => {
         console.log(error);
-        console.log("here")
+        console.log("here");
       });
+  };
 
+  const handleImageUpload = (imageUrl) => {
+    setImageUrl(imageUrl);
   };
   return (
     <div className="modal-overlay">
@@ -46,23 +50,22 @@ const Mod = ({ doggle }) => {
               onChange={handleChange}
               placeholder="Bio"
             />
-            <input
-              type="text"
-              name="profilePic"
-              value={formData.profilePic}
-              onChange={handleChange}
-              placeholder="profile Pic"
-            />
-            <button type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "Submit"}
-            </button>
+
+            <div className="modal-flex">
+              <button className="modal-btn" type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Submit"}
+              </button>
+              <UploadFile
+                handleImageUpload={handleImageUpload}
+                uploadedImg={uploadedImg}
+              />
+            </div>
 
             {error && <p>Error: {error.message}</p>}
           </form>
         </div>
       </div>
     </div>
-
   );
 };
 

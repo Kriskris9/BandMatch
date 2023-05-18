@@ -30,6 +30,7 @@ function CreatePost() {
       setCaptionText("");
       setImageUrl("");
       setUploadedImg(false);
+      window.location.assign("/feed");
     } catch (err) {
       console.error(err);
     }
