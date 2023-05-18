@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
 import CreatePost from "./createPost";
-import CommentForm from "./CommentForm";
-// import CommentFeed from "./Comments";
+import Comment from "./Comment";
 
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -26,22 +25,22 @@ function FeedComponent() {
         posts.map((post) => {
           return (
             <div className="feed-post">
-            <div className="feed-post-container">
-              <div className="profile-pic-container">
-                <img className="profile-pic-img" src={img}></img>
-                <div className="username">
-                  {post?.profile?.username ? post.profile.username : ""}
+              <div className="feed-post-container">
+                <div className="profile-pic-container">
+                  <img className="profile-pic-img" src={img}></img>
+                  <div className="username">
+                    {post?.profile?.username ? post.profile.username : ""}
+                  </div>
+                </div>
+                <div className="image-post-container">
+                  <img className="post-img" src={img}></img>
+                  <div className="info-container">
+                    <span className="caption">{post.postText}</span>
+                  </div>
                 </div>
               </div>
-              <div className="image-post-container">
-                <img className="post-img" src={img}></img>
-                <div className="info-container">
-                  <span className="caption">{post.postText}</span>
-                </div>
-              </div>
+              <Comment comments={post.comments} id={post._id} />
             </div>
-            <CommentForm comments={post.comments} id={post._id}/>
-          </div>
           );
         })}
     </main>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
 import CommentFeed from "./CommentFeed";
-import CommentForm from "./CommentForm"
+import Comment from "./Comment"
 import { useParams } from 'react-router-dom';
 import { SINGLE_POST } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -41,7 +41,7 @@ const SinglePost = () => {
                 </div>
             </div>
             <CommentFeed />
-            <CommentForm />
+            <Comment/>
         </main>
     )
 }

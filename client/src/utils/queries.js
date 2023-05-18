@@ -26,6 +26,12 @@ query Posts {
     createdAt
     profile {
       username
+      comments {
+        commentText
+        profile {
+          username
+        }
+      }
     }
   }
 }
@@ -44,8 +50,8 @@ query post($postId: ID!) {
     createdAt
   profile {
     username
-  }
-}
+      }
+    }
   }
 }
 `;

@@ -19,7 +19,7 @@ import Auth from "../src/utils/auth";
 import SinglePost from "./components/SinglePost";
 //COMMENT DEVELOPMENT TEST COMPONENTS FOR ROUTES--
 import CommentFeed from "./components/CommentFeed";
-import CommentForm from "./components/CommentForm";
+
 
 const styles = {
   app: {
@@ -68,7 +68,6 @@ function App() {
                 <Route path="/post/:postId" element={<SinglePost />} />
                 {/* THIS TEO ARE DEV ONLY TEST ROUTES-- FOR COMMENTS */}
                 <Route path="/comments" element={<CommentFeed />} />
-                <Route path="/commentform" element={<CommentForm />} />
 
               </>
             ) : (

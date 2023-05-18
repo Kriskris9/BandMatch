@@ -21,13 +21,6 @@ const typeDefs = gql`
     profile: Profile
   }
 
-  type Comment {
-    _id: ID!
-    createdAt: String
-    commentText: String
-    commentAuthor: String
-  }
-
   type profileCard {
     _id: ID
     profile: Profile
@@ -80,13 +73,13 @@ const typeDefs = gql`
 
     addPost(postText: String!, image: String!): Post
 
-    addComment(postId: ID!, commentText: String!): Post
+    addComment(postId: ID!, commentText: String!): Comment
 
     removeProfileCard(profileCardId: ID!): profileCard
 
     removePost(postId: ID!): Post
 
-    removeComment(postId: ID!, commentId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Comment
   }
 `;
 
