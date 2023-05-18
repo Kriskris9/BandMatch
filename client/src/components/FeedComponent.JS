@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import "./styles/homeFeed.css";
 import img from "./testIMG/apple-music-note.jpg";
 import CreatePost from "./createPost";
-import Comment from "./Comment";
+import CommentForm from "./CommentForm";
+import SinglePost from "./SinglePost";
+
 
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+
 
 
 
@@ -24,7 +27,7 @@ function FeedComponent() {
   return (
     <main className="feed">
       <CreatePost />
-      {posts && posts.map((post) => {
+      {/* {posts && posts.map((post) => {
         return (<div className="feed-post" >
           <div className="feed-post-container">
             <div className="profile-pic-container">
@@ -32,15 +35,16 @@ function FeedComponent() {
               <div className="username">Username: {post?.profile?.username ? post.profile.username : ""}</div>
             </div>
             <div className="image-post-container">
-              <img className="post-img" src={post?.image || post.image }></img>
+              <img className="post-img" src={post?.image || post.image}></img>
               <div className="info-container">
                 <span className="caption">Post: {post.postText}</span>
               </div>
             </div>
-            </div>
-          </div> ) 
-      })}
-          <Comment />
+          </div>
+        </div>)
+      })} */}
+      <SinglePost />
+      <CommentForm />
     </main>
   )
 }

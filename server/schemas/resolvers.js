@@ -12,21 +12,19 @@ const resolvers = {
         .populate("posts")
         .populate("profileCard");
     },
-    post: async (parent, { username }) => {
-      return Post.findOne({ _id:postId });
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId }).populate("profile").populate("comments");
     },
     posts: 
     async (parent, args) => {
-      // const params = username ? { username } : {}
       const posts = await Post.find().sort({ createdAt: -1 }).populate("profile").populate("comments")
-    
+      
       return posts;
     },
+    
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
-
       const profileCards = await profileCard.find(params).sort({ createdAt: -1 }).populate("profile")
-    
 
       return profileCards;
     },

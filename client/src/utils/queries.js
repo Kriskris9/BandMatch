@@ -29,6 +29,27 @@ query Posts {
 }
 `;
 
+export const SINGLE_POST = gql`
+  query singlePost($postId: ID!) {
+    post(postId: $postId) {
+    id
+    createdAt
+    image
+    postText
+    comments {
+      _id
+      commentAuthor
+      commentText
+      createdAt
+    }
+    profile {
+      username
+    }
+      }
+    }
+  }
+`;
+
 export const GET_COMMENTS = gql`
 query {
   posts {

@@ -48,8 +48,8 @@ const typeDefs = gql`
 
   type Query {
     profile: Profile
-    post(postId: ID!): Post!
     posts: [Post!]!
+    post(postId: ID!): Post!
     profileCards: [profileCard]
     me: Profile
     protectedQuery: String
