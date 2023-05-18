@@ -39,7 +39,7 @@
   color: #333;
 }
 
-.create-btn {
+.modal-btn {
   background-color: #4a90e2;
   color: #fff;
   border: none;
@@ -51,6 +51,6 @@
   padding: 8px;
 }
 
-.create-btn:hover {
+.modal-btn:hover {
   background-color: #2979c4;
 }
