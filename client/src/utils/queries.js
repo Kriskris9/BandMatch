@@ -91,7 +91,6 @@ export const GET_ME = gql`
       username
       email
       password
-      posts
       profileCard
       bio
       profilePic

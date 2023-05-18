@@ -12,7 +12,7 @@ db.once("open", async () => {
     await Post.deleteMany({});
 
     await profileCard.deleteMany({});
- 
+
     await Comment.deleteMany({});
 
     const profileId = [];
@@ -42,8 +42,8 @@ db.once("open", async () => {
         { _id: _id },
         { $set: { profile: profileToAssign } }
       );
-    
-      const numComments = Math.floor(Math.random() * 5);
+
+      const numComments = Math.floor(Math.random() * 3);
       for (let j = 0; j < numComments; j++) {
         const randomProfileIndex = Math.floor(Math.random() * profileId.length);
         const randomProfile = await Profile.findById(profileId[randomProfileIndex]);
@@ -53,8 +53,6 @@ db.once("open", async () => {
           profile: randomProfile._id,
           post: _id
         });
-    
-        // Update the comments array in the corresponding post
         await Post.findByIdAndUpdate(
           _id,
           { $push: { comments: commentId } },

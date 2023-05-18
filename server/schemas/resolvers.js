@@ -36,9 +36,8 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.profile) {
-        return Profile.findOne({ _id: context.profile._id })
-          .populate("post")
-          .populate("profileCard");
+        return Profile.findOne({ _id: context.profile._id }).populate("post");
+        // .populate("profileCard");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -96,11 +95,11 @@ const resolvers = {
           profile: context.profile._id,
         });
 
-        await Profile.findOneAndUpdate(
+        const user = await Profile.findOneAndUpdate(
           { _id: context.profile._id },
-          { $addToSet: { post: newPost._id } }
+          { $addToSet: { posts: newPost._id } }
         );
-
+        console.log(user);
         return newPost;
       }
       throw new AuthenticationError("You need to be logged in!");

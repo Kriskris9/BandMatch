@@ -21,7 +21,7 @@ const Profile = () => {
     <div className="container">
       <div className="row">
         <div className="col-4">
-        <ProfileComponent
+          <ProfileComponent
             profile={profile.username}
             bio={profile.bio}
             posts={profile.posts}
