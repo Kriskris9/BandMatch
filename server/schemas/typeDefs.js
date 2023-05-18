@@ -75,6 +75,7 @@ const typeDefs = gql`
 
     addComment(postId: ID!, commentText: String!): Comment
 
+
     removeProfileCard(profileCardId: ID!): profileCard
 
     removePost(postId: ID!): Post
