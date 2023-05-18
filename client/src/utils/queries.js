@@ -9,6 +9,9 @@ export const GET_PROFILE = gql`
       password
       profileCard
       bio
+      posts {
+        _id
+      }
     }
   }
 `;
@@ -92,6 +95,9 @@ export const GET_ME = gql`
       profileCard
       bio
       profilePic
+      posts {
+        _id
+      }
     }
   }
 `;

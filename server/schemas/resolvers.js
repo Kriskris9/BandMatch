@@ -16,7 +16,6 @@ const resolvers = {
       return Post.findOne({ _id: postId });
     },
     posts: async (parent, args) => {
-      // const params = username ? { username } : {}
       const posts = await Post.find()
         .sort({ createdAt: -1 })
         .populate("profile")
@@ -25,7 +24,6 @@ const resolvers = {
 
       return posts;
     },
-    
     profileCards: async (parent, { username }) => {
       const params = username ? { username } : {};
 
@@ -134,21 +132,26 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { postId, commentText }, context) => {
-    const comment = await Comment.create({
-      commentText,
-      profile: context.profile._id,
-    });
+      if (context.profile) {
+        const comment = await Comment.create({
+          commentText,
+          profile: context.profile._id,
+        });
+
         await Post.findOneAndUpdate(
-        { _id: postId },
-          {$addToSet: {
-              comments: {comment,_id}
-          },
+          { _id: postId },
+          {
+            $addToSet: {
+              comments: comment._id,
+            },
           },
           {
             new: true,
             runValidators: true,
           }
         );
+        return comment;
+      }
       throw new AuthenticationError("You need to be logged in!");
     },
     // removeProfileCard: async (parent, { profileId }, context) => {

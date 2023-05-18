@@ -40,7 +40,7 @@ function FeedComponent() {
                 </div>
               </div>
             </div>
-            <CommentForm comments={post.comments} />
+            <CommentForm comments={post.comments} id={post._id}/>
           </div>
           );
         })}
