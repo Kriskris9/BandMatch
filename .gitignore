@@ -139,3 +139,4 @@ dist
 .node_modules
 npm-debug.log
 tests/
+package-lock.json
