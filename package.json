@@ -1,9 +1,6 @@
 {
     "name": "band-match",
     "version": "1.0.0",
-    "engines": {
-        "node": "18.15.0"
-    },
     "main": "server/server.js",
     "scripts": {
         "start": "node server/server.js && npm start",
