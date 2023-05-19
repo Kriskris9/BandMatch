@@ -34,7 +34,7 @@ const Header = () => {
                     Profile
                   </Link>
                 </li>
-                <Link className="header-link" onClick={logout} to="/">
+                <Link className="header-link" onClick={logout} to="/login">
                   Logout
                 </Link>
               </>
@@ -46,7 +46,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="header-link" to="/">
+                  <Link className="header-link" to="/login">
                     Login
                   </Link>
                 </li>
