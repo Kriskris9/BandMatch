@@ -32,7 +32,6 @@ Greg DeCarlo: https://github.com/KryptekHD
 
 
 ## Deployed Link 
-[https://shrouded-shelf-08747.herokuapp.com/](https://shrouded-shelf-08747.herokuapp.com/)
-[HEROKU GIT](https://git.heroku.com/shrouded-shelf-08747.git)
+
 
 
