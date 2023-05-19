@@ -72,7 +72,6 @@ function App() {
             ) : (
               <>
                 <Route path="/" element={<Feed />} />
-                <Route path="/feed" element={<Feed />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="*" element={<NotFound />} />
