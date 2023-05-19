@@ -20,7 +20,7 @@ const Comment = ({ comments, id }) => {
           postId: id,
         },
       });
-      window.location.assign("/feed");
+      window.location.assign("/");
       setCommentText("");
     } catch (error) {
       console.error(error);

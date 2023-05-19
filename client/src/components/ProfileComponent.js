@@ -17,7 +17,7 @@ const UserCards = ({ profile, bio, posts }) => {
   };
 
   const redirectPage = () => {
-    window.location.assign("/feed");
+    window.location.assign("/");
   };
   console.log(posts);
 
