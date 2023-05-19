@@ -17,6 +17,7 @@ import Feed from "../src/pages/Feed";
 import Profile from "../src/pages/Profile";
 import Auth from "../src/utils/auth";
 import SinglePost from "./components/SinglePost";
+import NotFound from "./components/NotFound";
 //COMMENT DEVELOPMENT TEST COMPONENTS FOR ROUTES--
 import CommentFeed from "./components/CommentFeed";
 
@@ -67,6 +68,7 @@ function App() {
                 <Route path="/post/:postId" element={<SinglePost />} />
                 {/* THIS TEO ARE DEV ONLY TEST ROUTES-- FOR COMMENTS */}
                 <Route path="/comments" element={<CommentFeed />} />
+                <Route path="*" element={<NotFound />} />
               </>
             ) : (
               <>
