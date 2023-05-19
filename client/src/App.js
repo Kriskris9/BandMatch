@@ -62,19 +62,16 @@ function App() {
             {Auth.loggedIn() ? (
               <>
                 {/* REMEMBER TO ADD A 404 ROUTE!! */}
-                <Route path="/users" element={<Users />} />
-                <Route path="/profile" element={<Profile />} />
-                
                 <Route path="/" element={<Feed />} />
                 <Route path="/feed" element={<Feed />} />
+                <Route path="/users" element={<Users />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/post/:postId" element={<SinglePost />} />
-                {/* <Route path="/login" element={<Login />} /> */}
                 <Route path="*" element={<NotFound />} />
-                <Route path="/feed" element={<Feed />} />
               </>
             ) : (
               <>
-                <Route path="/" element={<Login />} />
+                <Route path="/" element={<Feed />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="*" element={<NotFound />} />

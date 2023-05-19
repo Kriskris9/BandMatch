@@ -44,7 +44,7 @@ const Login = () => {
 
         {data ? (
           <p>
-            <Link to="/feed"></Link>
+            <Link to="/"></Link>
           </p>
         ) : (
           <form className="formbox" onSubmit={handleFormSubmit}>
