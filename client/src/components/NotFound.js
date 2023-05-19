@@ -2,14 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function NotFound() {
-  return (
-    <div>
-    <h1 style={{ textAlign:"center", color:"red"}}>404 Error: Page does not exist</h1>
-        <div>
-        <Link to="/feed" style={{ textAlign:"center", textDecoration: "none" }}>Return to Feed</Link>
+    return (
+        <>
+        <h1 style={{ textAlign: "center", color: "red", fontSize: "2.2rem" }}>404 Error:</h1>
+        <div style= {{textAlign: "center"}}>
+            
+            <p style={{ color: "black", fontSize: "1.33rem" }}>Page does not exist
+            </p>
+            <Link to="/feed" style={{ fontSize:"2rem", textDecoration: "none"}}>Return to Feed</Link>
         </div>
-    </div>
-  )
+        </>
+    )
 }
 
 export default NotFound;
