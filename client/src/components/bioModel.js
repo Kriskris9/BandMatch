@@ -11,6 +11,8 @@ const Mod = ({ doggle }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [uploadedImg, setUploadedImg] = useState(true);
 
+
+
   const [updateProfile, { loading, error }] = useMutation(UPDATE_PROFILE);
 
   const handleChange = (e) => {
@@ -24,7 +26,10 @@ const Mod = ({ doggle }) => {
     console.log(formData);
     updateProfile({ variables: formData })
       .then((result) => {
-        console.log(result.data.updateProfile);
+        console.log(result);
+        alert("Bio Updated");
+        setUploadedImg(false);
+   
       })
       .catch((error) => {
         console.log(error);
@@ -34,6 +39,7 @@ const Mod = ({ doggle }) => {
 
   const handleImageUpload = (imageUrl) => {
     setImageUrl(imageUrl);
+    alert("File Uploaded");
   };
   return (
     <div className="modal-overlay">
