@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./styles/homeFeed.css";
-import img from "./testIMG/apple-music-note.jpg";
 import CreatePost from "./createPost";
 import Comment from "./Comment";
 

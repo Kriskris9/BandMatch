@@ -1,6 +1,9 @@
 {
     "name": "band-match",
     "version": "1.0.0",
+    "engines": {
+        "node": "18.15.0"
+    },
     "main": "server/server.js",
     "scripts": {
         "start": "node server/server.js && npm start",
@@ -10,7 +13,7 @@
         "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
         "seed": "cd server && npm run seed",
-        "build": "cd client && npm run build"
+        "build": "cd client && npm run buildnode --max_old_space_size=6000"
     },
     "keywords": [],
     "author": "",
