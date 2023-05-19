@@ -11,13 +11,11 @@ With our user-friendly interface and advanced search options, you'll be able to 
 To use this application, simply visit the deployed link below. You will be taken to the homepage where you can either sign up or log in. Once you've created an account, you will be able to search for other users based on location, instrument, genre, and more. You can also create a profile for yourself and add your own information to the database.
 
 
-
-
 # License
 
 This project is licensed under the MIT license.
 
-## Contributing
+## Contributors
 
 Alexander Scher: https://github.com/alexanderscher
 
@@ -30,8 +28,17 @@ Greg DeCarlo: https://github.com/KryptekHD
 
 ## Assets 
 
+<img src="./client/src/assets/signup.png" width="40%">
+<img src="./client/src/assets/login.png" width="50%">
+<img src="./client/src/assets/profilecard.png" width="90%">
+<img src="./client/src/assets/users.png" width="45%">
+<img src="client/src/assets/posts.png" width="75%">
+
+
 
 ## Deployed Link 
+
+[https://polar-basin-38495.herokuapp.com/](https://polar-basin-38495.herokuapp.com/)
 
 
 
