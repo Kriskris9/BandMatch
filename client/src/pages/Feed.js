@@ -1,7 +1,7 @@
 import React from "react";
-import FeedComponent from "../components/FeedComponent";
 import { GET_POSTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import FeedComponents from "../components/FeedComponents";
 
 function Feed() {
   const { loading, data } = useQuery(GET_POSTS);
@@ -14,7 +14,7 @@ function Feed() {
 
   return (
     <div className="feed-container">
-      <FeedComponent posts={posts} /> 
+      <FeedComponents posts={posts} /> 
     </div>
   );
 }
