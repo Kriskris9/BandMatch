@@ -18,8 +18,8 @@ import Profile from "../src/pages/Profile";
 import Auth from "../src/utils/auth";
 import SinglePost from "./components/SinglePost";
 import NotFound from "./components/NotFound";
-//COMMENT DEVELOPMENT TEST COMPONENTS FOR ROUTES--
-import CommentFeed from "./components/CommentFeed";
+// //COMMENT DEVELOPMENT TEST COMPONENTS FOR ROUTES--
+// import CommentFeed from "./components/CommentFeed";
 
 const styles = {
   app: {
