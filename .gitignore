@@ -140,3 +140,5 @@ dist
 npm-debug.log
 tests/
 package-lock.json
+assets
+.assets/
