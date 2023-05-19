@@ -15,7 +15,7 @@ const Header = () => {
       <div className="header-container">
         <div>
           <h1>
-            <Link className="header-link" to="/feed">
+            <Link className="header-link" to="/">
               BandMatch
             </Link>
           </h1>
