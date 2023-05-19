@@ -9,7 +9,7 @@ function NotFound() {
             
             <p style={{ color: "black", fontSize: "1.33rem" }}>Page does not exist
             </p>
-            <Link to="/feed" style={{ fontSize:"2rem", textDecoration: "none"}}>Return to Feed</Link>
+            <Link to="/" style={{ fontSize:"2rem", textDecoration: "none"}}>GO BACK</Link>
         </div>
         </>
     )
