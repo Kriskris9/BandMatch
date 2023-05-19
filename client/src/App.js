@@ -64,7 +64,7 @@ function App() {
                 {/* REMEMBER TO ADD A 404 ROUTE!! */}
                 <Route path="/users" element={<Users />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/" element={<Feed />} />
+                <Route exact path="/" element={<Feed />} />
                 <Route path="/post/:postId" element={<SinglePost />} />
                 {/* THIS TEO ARE DEV ONLY TEST ROUTES-- FOR COMMENTS */}
                 <Route path="/comments" element={<CommentFeed />} />
@@ -74,7 +74,7 @@ function App() {
               <>
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/" element={<Feed />} />
+                <Route exact path="/" element={<Feed />} />
               </>
             )}
           </Routes>
